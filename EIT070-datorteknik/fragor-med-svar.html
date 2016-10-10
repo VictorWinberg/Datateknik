@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Datorteknik - Instuderingsfrågor med svar</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div class="container">
+<div id="header" align="center">
+<h1 class="title">Instuderingsfrågor</h1>
+<h4> Sammanställt av Victor Winberg (Källor sista sidan)</h4>
+</div>
+<h2 id="processorn">Processorn</h1>
+<ol style="list-style-type: decimal">
+<li><p>Vad är Moores lag?<br />
+<strong>Moores lag</strong> är observationen att <strong>antalet transistorer</strong> på en processor <strong>dubbleras vartannat år</strong>.</p></li>
+<li><p>Vem är Von Neumann?<br />
+<strong>John von Neumann</strong> var en forskare inom datorteknik och la <strong>grunden för</strong> det <strong>gemensamma minnet för instruktioner och data</strong>. Datorarkitekturen gick ut på att se program och data som samma sak när de placeras i minnet.</p></li>
+<li><p>Vad gör en kompilator?<br />
+<strong>Kompilatorn</strong> <strong>översätter</strong> från ett <strong>högnivåprogramspråk</strong> till ett annat programspråk med <strong>lägra nivå</strong>, ofta assembler eller direkt till maskinkod.</p></li>
+<li><p>Vad gör en assemblator?<br />
+<strong>Assemblerar</strong> assemblerkod till maskinkod.</p></li>
+<li><p>Ge exempel på högnivåspråk.<br />
+<strong>C och C++</strong> (som kompilerar till assembler eller maskinkod). <strong>Java</strong> (kompilerar till bytekod som sedan kör på JVM (Javas virtuella maskin)).</p></li>
+<li><p>Vad skiljer ett högnivåspråk från ett maskinspråk?<br />
+<strong>Högnivåspråk</strong> är <strong>lättare</strong> för <strong>människor</strong> att skriva och felsöka medan assemblerkod tenderar att vara jobbigt att utveckla och förstå. Men <strong>datorn</strong> kan inte direkt läsa från ett högnivåspråk, utan <strong>kräver</strong> att det genomgår kompilation till <strong>maskinspråk</strong> (eller bytekod om det ska köras på JVM).</p></li>
+<li><p>Görs alla beräkningar (+,-,…, AND, OR) i ALU:n?<br />
+<strong>Nej,</strong> <strong>inte</strong> de som involverar <strong>flyttal</strong>. Annars görs både aritmetiska och logiska instruktioner i ALU:n.</p></li>
+<li><p>Ge exempel på indata och utdata till en kontrollenhet.<br />
+<strong>Input:</strong> en <strong>instruktion</strong> från <strong>minnet</strong>.<br />
+<strong>Output:</strong> avkodad <strong>instruktion</strong> till <strong>ALU:n</strong>.</p></li>
+<li><p>Ge exempel på fördelar med att använda register för att lagra data.<br />
+Data i <strong>register hämtas/sparas snabbare</strong> än data i t.ex. minnet, eftersom register sitter <strong>fysiskt närmare CPU:n</strong>. Med pipelinearkitektur kan register användas av flera instruktioner samtidigt (går inte med t.ex. primärminnet).</p></li>
+<li><p>Om en processor gör ”Fetch” och ”Execute”, vad görs under ”Fetch” resp ”Execute”? Är det som gör under ”Fetch” samma för alla instruktioner?<br />
+<strong>Fetch:</strong> Hämtar instruktion från adress xxx<br />
+Flyttar instruktion y<sub>0</sub>y<sub>1</sub>y<sub>2</sub> från plats xxx till CPU<br />
+<strong>Execute:</strong> Avkodar instruktionen y<sub>0</sub>y<sub>1</sub>y<sub>2</sub><br />
+Hämtar data från adressen y<sub>0<br />
+</sub>Lagrar data i register y<sub>2</sub></p></li>
+</ol>
+<h2 id="pipelining">Pipelining</h1>
+<ol style="list-style-type: decimal">
+<li><p>Vad är pipelining?<br />
+<strong>Pipelining</strong> är när processorn kör flera <strong>olika instruktioner samtidigt</strong> genom att tillåta en instruktion i varje fas (t.ex. en i ”Fetch” och en i ”Execute”). Man kan dock alltid enbart exekvera en instruktion i taget.</p></li>
+<li><p>Vilka konflikter kan uppstå i en pipeline?<br />
+<strong>Strukturella konflikter, datakonflikter, kontrollkonflikter.</strong></p></li>
+<li><p>Illustrera hur konflikter uppstår.<br />
+<strong>Strukturella konflikter</strong> <strong>–</strong> När två pipelineade instruktioner försöker använda samma hårdvarukomponent (ex minnet) samtidigt.<br />
+<strong>Datakonflikter –</strong> När en instruktion hämtar data från ett register som nyss ändrats och inte hunnit få sitt nya värde.<br />
+<strong>Kontrollkonflikter –</strong> När man ska brancha och inte vet ifall branchningen gick igenom, vilket resulterar i att man inte vet vilken instruktion som ska hämtas.</p></li>
+<li><p>Vad ska man göra för att undvika konflikter?<br />
+<strong>Strukturella konflikter</strong> undviker man genom att inte sätta instruktioner som vill komma åt minnet nära varandra.<br />
+<strong>Datakonflikter</strong> undviker man genom att separera data- och instruktionscache, eller placera om.<br />
+<strong>Kontrollkonflikter</strong> undviker man genom stallande (<strong>nop</strong>-instruktioner), delayed branchning och branch prediction.</p></li>
+<li><p>Vad är branch prediction?<br />
+Processorn gissar på att branchen kommer hoppa eller inte och hämtar nästa instruktion utan att <strong>stalla</strong>, gissar man fel blir det lite extra <strong>straffcykler</strong>.<br />
+<strong>Statisk prediktion –</strong> tar man <em>inte</em> hänsyn till historiken.<br />
+<strong>Dynamisk prediktion –</strong> tar man hänsyn till historiken.</p></li>
+<li><p>Vad är spekulativ exekvering?<br />
+När processorn börjar exekvera instruktioner baserat på branchgissning gjord av en <strong>branchprediktion</strong> och utan kännedom ifall instruktionen är rätt eller inte.</p></li>
+<li><p>Vad är delayed branchning? Vinst? Ge ett exempel.<br />
+När man inte vill <strong>stalla</strong> och istället automatiskt kör nästa instruktion som ligger efter hoppet. Instruktionen som hade utförts vare sig branchen hoppar eller inte. Sen sätter man instruktionen efter branchen i en <strong>branch delay slot</strong>. Detta blir ett <strong>kostfritt stallande</strong> så CPU:n hinner komma på om den ska hoppa eller inte utan kostnad.<br />
+<br />
+<strong>Alt:</strong> När instruktioner körda innan branchning, som inte kommer påverka om branchen kommer genomföras eller ej, läggs precis efter branchningen så stall/nop inte behövs.</p></li>
+<li><p>Vad är delayed load? Vinst? Ge ett exempel.</p></li>
+<li><p>Ge exempel på en komplatorteknik som kan användas för att undvika/hantera konflikter i pipelinen.<br />
+<strong>Delayed branchning</strong> är en kompilatorteknik som undviker <strong>kontrollkonflikter.</strong></p></li>
+</ol>
+<h2 id="minnet">Minnet</h1>
+<ol style="list-style-type: decimal">
+<li><p>Hur lagras information på en hårddisk?<br />
+En <strong>hårddisk</strong> (ej SSDs) lagrar information på <strong>magnetiska skivor</strong> som läses med ett läshuvud. Informationen lagras i <strong>Words</strong> som ligger i <strong>blocks</strong>.</p></li>
+<li><p>Vad är random access när man talar om minnen?<br />
+Ett <strong>volatile primärminne</strong>, där alla <strong>sektorer</strong> på minnet tar ungefär <strong>lika lång tid</strong> att hämta.</p></li>
+<li><p>Ge exempel på minne som inte har random access.<br />
+Alla non-volatile minnen, vilket är <img src=".//media/image1.png" width="231" height="216" />sekundärminnen, där olika sektorer tar olika lång tid att hämta beroende på sektorns avstånd från läshuvudets tidigare position.</p></li>
+<li><p>Vad är en minneshierarki?<br />
+Ett system där man har<br />
+snabba och <strong>små minnen</strong><br />
+högst upp (<strong>närmast<br />
+CPU:n</strong>) och långsamma<br />
+och <strong>stora minnen</strong> längst<br />
+ner (<strong>längst ifrån CPU:n</strong>).</p></li>
+<li><p>Varför uppstår en minneshierarki?<br />
+Eftersom vi <strong>inte</strong> kan ha båda <strong>stora och snabba</strong> minnen. Kompromissen blir att man lägger mindre, snabbare minnen nära CPU:n för att öka snabbheten/ minska accesstid och större, långsammare minnen längre ifrån CPU:n.</p></li>
+<li><p>Vad kallas principen som gör att cacheminne fungerar? Förklara och ge exempel.<br />
+<strong>Lokalitetsprincipen –</strong> Med två subprinciper: Om instruktion/data blivit refererad nu, så är sannolikheten stor att ...<br />
+<em>Temporal lokalitet</em> – … samma referens görs snart igen.<br />
+<em>Rumslokalitet</em> – … instruktioner/data vid adresser i närhet kommer användas snart.</p></li>
+<li><p>Vad är en cachemiss? Varför uppkommer cachemissar? Hur hanteras det?<br />
+En <strong>cachemiss</strong> är när du <strong>söker</strong> efter något <strong>i cacheminnet</strong> och inte hittar det, och du måste <strong>stoppa in</strong> det i cachen <strong>från RAM-minnet</strong>.</p></li>
+<li><p>Cacheminnen kan ha olika mappning – vilka? Hur fungerar varje mappning?<br />
+<strong>Direktmappning –</strong> Man placerar instruktionen på <em>nästan</em> samma plats som den är på i minnet, platsen kallas cacheindex. Placeringen är instruktionens <strong>adress</strong> i minnet <strong>modulo cachestorlek</strong>.<br />
+<strong>Associativ-mappning –</strong> Man fyller cacheminnet på <strong>följd</strong> och använder <strong>ersättningsalgoritm</strong> vid cachemiss i ett fullt cacheminne.<br />
+<strong>Set-associativ-mappning –</strong> Detta är en <strong>blandning</strong> mellan <strong>direkt</strong>- och <strong>associativ-mappning</strong>. Man delar in cacheminnet i flera <em>sets</em>, mappar vissa instruktionsadresser till dessa sets, och använder associativ-mappning inom varje set.</p></li>
+<li><p>I direktmappning, hur ersätts cacherader vid cachemissar?<br />
+De <strong>skriver över</strong> med den nya informationen vare sig det fanns något eller inte.</p></li>
+<li><p>Vad är ersättningsalgoritm?<br />
+En algoritm som används vid associativ-mappning för att bestämma vilken/vilka cacherad/cacheblock som ska kastas. Vi har lärt oss tre:<br />
+<strong>Least recently used (LRU) –</strong> data i cachen som <strong>inte</strong> blivit <strong>refererad</strong> på länge.<br />
+<strong>Least frequently used (LFU) –</strong> data i cachen som <strong>refererats</strong> mest <strong>sällan</strong>.<br />
+<strong>First in, first out (FIFO) –</strong> data i cachen som <strong>existerat längst</strong> i cacheminnet.</p></li>
+<li><p>Vad menas med att cacheminnet inte är konsistent? Hur hålls det konsistent?<br />
+Att <strong>cacheminnet</strong> ska <strong>matcha</strong> informationen i <strong>sekundärminnet</strong> och vice versa.</p></li>
+<li><p>Antag ett program som exekverar alla instruktioner i en sekvens (en i taget) och att det finns ett cacheminne för instruktioner där cacherader har storlek 64 bytes och varje instruktion kräver 2 bytes. Vad är sannolikheten för att nästa instruktion finns i samma cacherad som förra instruktionen?<br />
+Antalet instruktioner per cacherad är <em>64/2=32</em>, vilket innebär att sannolikheten är <em>1/32</em> att nästa instruktion ligger på nästa cacherad. Det omvända fallet blir då <em>1-(1/32) = 31/32</em> dvs. <strong>sannolikheten</strong> är <strong>31/32</strong><em>.</em></p></li>
+<li><p>Vad är fördelen med paging? (OBS: <em>”Vad är paging?”</em> kommer längre ner)<br />
+Att man dynamiskt <strong>laddar</strong> in <strong>data</strong> i minnet <strong>på begäran</strong> och <strong>laddar ur</strong> det när det <strong>ej används</strong>.</p></li>
+<li><p>Vad är nackdelar med paging?<br />
+Tidskrävande att ladda in och ur sidor ur minnet.</p></li>
+<li><p>Vad är fragmentering när vi pratar om paging?<br />
+Att man delar upp det(?) i t.ex. process A<sub>x</sub> på samma ställe i den fysiska adressen, kallas <strong>fragmentering</strong>.</p></li>
+<li><p>Vad är skillnaden på extern och intern fragmentering?<br />
+<strong>Intern:</strong> när man <strong>allokerar</strong> och inte använder kapaciteten av hela <strong>clustrar/block</strong>.<br />
+<strong>Extern:</strong> när det uppstår icke-allokerade luckor i minnet mellan allokerade segment, som gör <strong>clustrar/blocken</strong> mindre.</p></li>
+<li><p>Vad är paging?<br />
+Paging delar upp primärminnet i ramar (frames) och program i sidor (pages). En <strong>page</strong> är en samling instruktioner till en process. <strong>Paging</strong> är en metod för att <strong>ladda</strong> in program och data från <strong>sekundärminnet till primärminnet</strong>.</p></li>
+<li><p>Vad är en sida (page), ram (frame)?<br />
+Primärminnet är uppdelat i <strong>frames – fysiska platser,</strong> som kan fyllas med <strong>pages</strong> <strong>– samling med instruktioner till en process</strong>.</p></li>
+<li><p>Om en sida är 2 kB, kan man säga något om storleken på primärminnet eller en ram?</p></li>
+<li><p>Vad är demand paging?<br />
+<strong>Demand paging</strong> är när sidor endast laddas från aktiva program när deras innehåll efterfrågas och aldrig innan till <strong>primärminnet</strong>.</p></li>
+<li><p>Vad är trashing? När uppkommer det?<br />
+<strong>Trashing</strong> uppkommer när ett program friar upp ramar som regelbundet används. Detta kräver flera cykler av att ladda in och ladda ur under kort tid, vilket resulterar i att <strong>operativsystemet</strong> spenderar större delen av sin tid på att ladda in och ut sidor från <strong>cachen</strong>.</p></li>
+<li><p>Vad är skillnaden på paging och virtuellt minne?<br />
+<strong>Virtuellt minne</strong> mappar en process virtuella adressintervall till sidor i primärminnet eller data i sekundärminnet. <strong>Paging</strong> hanterar in- och urladdning av data direkt från sekundärminnet till primärminnet.</p></li>
+<li><p>Vad är sidfel?<br />
+<strong>Sidfel</strong> är ett avbrott som sker när ett program försöker komma åt data som inte ligger i RAM-minnet/virtuell minnescell.</p></li>
+<li><p>Vad händer vid sidfel? Hur hanteras det?<br />
+Operativsystemet fångar upp avbrottet genom att leta upp datan i sekundärminnet, skaffar sig en tom ram och lagrar datan i ramen.</p></li>
+</ol>
+<h2 id="operativsystemet">Operativsystemet</h1>
+<ol style="list-style-type: decimal">
+<li><p>Vad gör ett operativsystem?<br />
+Kärnan hanterar hårdvaruresurser som:</p>
+<ul>
+<li><p>Processhantering (process management)</p></li>
+<li><p>Avbrott (interrupts)</p></li>
+<li><p>Minneshantering (memory management)</p></li>
+<li><p>Filsystem (file system)</p></li>
+<li><p>Drivrutiner (device drivers)</p></li>
+<li><p>Nätverk (Networking)</p></li>
+<li><p>Säkerhet (Security)</p></li>
+<li><p>In- och utmatning (I/O – input/output)</p></li>
+</ul></li>
+<li><p>Vad är multitasking?<br />
+Att flera program körs samtidigt (dvs. hoppar fram och tillbaka mellan instruktioner i olika program).</p></li>
+<li><p>En användare känner att flera program exekverar samtidigt, hur är det möjligt?<br />
+Schemaläggaren tilldelar <strong>klockcykler</strong> på ett sådant sätt att användaren inte märker av att processorn hoppar mellan instruktioner, detta på grund av att <strong>exekveringstiden</strong> är väldigt liten.</p></li>
+<li><p>Vad är ett kontextbyte?<br />
+När man byter exekverande program (vilken tråd som för stunden exekverar).</p></li>
+<li><p>Hur går kontextbyte till? Hur vet man om att det ska ske? Inblandade faktorer?<br />
+När <strong>schemaläggaren</strong> beslutat ett byte mellan två trådar så sparas först <strong>tillståndet</strong> för nuvarande tråd, sen sätter man <strong>pc</strong> (programräknaren) till den andra trådens <strong>kontext</strong>. Sen byter man tillbaka till den första trådens kontext.</p></li>
+<li><p>Behövs avbrott för att klara av att göra kontextbyten?<br />
+<strong>Nej</strong>, man kan göra kontextbyte med <strong>polling</strong>.</p></li>
+<li><p>Hur fungerar avbrott?<br />
+Avbrott är en <strong>mekanisk signal</strong> (1:or och 0:or) skickas till processorn som direkt hoppar till <strong>avbrottshanteraren</strong>.</p></li>
+<li><p>Om man skapar en struktur för att lagra filer, vad vill man uppnå?<br />
+Kunna <strong>strukturellt</strong> <strong>allokera</strong> utrymme åt filer på disken, för att kunna nå data <strong>snabbare</strong> och <strong>lagra stora filer</strong>.</p></li>
+<li><p>Om man ska läsa in en fil från en hårddisk, vad påverkar lästiden?<br />
+<strong>Storleken</strong> på <strong>hårddisken</strong> och hur filerna är lagrade (fragmentering och filsystemet).</p></li>
+</ol>
+<h2 id="section" class="ListParagraph"></h1>
+<ol>
+<li><h2 id="extentor">ExTentor</h1>
+<ol>
+<li><h2 id="extenta-1">Extenta 1</h2></li>
+</ol></li>
+</ol>
+<ol style="list-style-type: decimal">
+<li><p>Uppgift 1</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Vad gör en kompilator som indata och vad genererar den som utdata?<br />
+<strong>Mitt svar:</strong> En kompilator tar in högnivåprogramspråk och genererar ett annat programspråk på lägre nivå, ofta assembler, bytekod (till JVM) eller direkt maskinkod.<br />
+<strong>Svar:</strong> En kompilator tar som indata ett program (källkod) beskrivet i ett högnivåspråk och genererar som utdata maskininstruktioner för en specifik processor.</p></li>
+<li><p>Vad gör en kontrollenhet under den tid som kallas FETCH?<br />
+<strong>Mitt svar:</strong> Kontrollenheten hämtar en instruktion från adress xxx.<br />
+<strong>Svar:</strong> FETCH delen för en instruktion är gemensam för alla instruktioner, dvs. det är samma sak som görs. Det som görs är att:</p>
+<ol style="list-style-type: decimal">
+<li><p>ta värdet som finns i programräknaren</p></li>
+<li><p>läsa den data som finns på den plats som pekas ut av programräknaren</p></li>
+<li><p>räkna upp programräknaren</p></li>
+<li><p>lagra instruktion som lästs in i instruktionsregister (så att instruktion kan avkodas)</p></li>
+</ol></li>
+<li><p>Hur påverkar implementationen av kontrollenheten prestandan i processorn?<br />
+<strong>Mitt svar:</strong> Ifall kontrollenheten är implementerad så att det tar onödigt många klockcykler för att utföra en instruktion måste processorn arbeta mer än vad den annars behövt göra.<br />
+<strong>Svar:</strong> Kontrollenheten bryter ned det som ska göras för en maskininstruktion i mindre delar (steg). Ju färre steg som används, ju snabbare exekveras instruktionerna. Det ställer krav på att mer saker kan utföras parallellt i varje steg, vilket ökar kostnaden för hårdvara.</p></li>
+</ol></li>
+<li><p>Uppgift 2</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Beskriv vad som görs vid ett kontextbyte.<br />
+<strong>Mitt svar:</strong> Vid ett kontextbyte sparar man först det nuvarande tillstånd man befinner sig, sedan sätter man programräknaren till den nya kontexten och därefter ställer man tillbaka programräknaren till det första kontexten.<br />
+<strong>Svar:</strong> Vid ett kontextbyte byter en process exekvering av ett program (process/tråd) till ett annat program. För att göra detta möjligt måste information, t.ex. register innehåll, sparas i t.ex. ett process control block och registren måste laddas med information från det program som ska påbörja exekvering (från dess process control block).</p></li>
+<li><p>Hur bestäms det när kontextbyte ska ske?<br />
+<strong>Mitt svar:</strong> Schemaläggaren bestämmer när ett sådan byte ska ske. Därefter byter processorn den exekverande tråden till den andra tråden.<br />
+<strong>Svar:</strong> Kontextbyten sker vid avbrott. Dessa avbrott kan genereras av en extern klocka eller när ett program vill göra ett systemanrop för att göra t.ex. en I/O operation.</p></li>
+<li><p>Varför används en så kallad translation look-aside buffer (TLB)?<br />
+<strong>Mitt svar:</strong> Eftersom man vill översätta kod i buffertern i förväg.<br />
+<strong>Svar:</strong> Om minnet använder paging så behövs en sidtabell som håller ordning på var en sida (page) ligger i minnet. Denna sidtabell måste lagras någonstans. Om sidtabellen lagras i primärminnet kommer varje läsning/skrivning till primärminnet ta två accesser. Först en för att läsa sidtabellen och sedan en access för att läsa/skriva datan. Om man använder en TLB, dvs. en cache för sidtabellen, så sparar man tid för läsning av sidtabell.</p></li>
+</ol></li>
+<li><p>Uppgift 3</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Assembly instruktioner för att adressera data använder olika adresseringsmöjligheter (moder). Vad kallas den typ av konflikt som instruktioners adressering kan påverka i en pipeline?<br />
+<strong>Mitt svar:</strong> N/A</p></li>
+</ol></li>
+</ol>
+<h2 id="section-1" class="ListParagraph"></h1>
+<h2 id="källor">Källor</h1>
+<p><strong>Varning:</strong> Dessa källor med svar är skrivna av studenter och är därför inte garanterat rätt och absolut inte förklarat på bästa sätt, förbättringar välkomnas!</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="http://datateknik-lth.github.io/courses/EIT070-datorteknik/instuderingsfragor-med-svar/" class="uri">http://datateknik-lth.github.io/courses/EIT070-datorteknik/instuderingsfragor-med-svar/</a></p></li>
+<li><p>Amelia Anderssons svar</p></li>
+</ol>
+</div>
+</body>
+</html>

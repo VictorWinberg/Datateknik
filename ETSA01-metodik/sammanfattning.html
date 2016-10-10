@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Victor Winberg" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <title>Ingenjörsprocessen Metodik - Sammanfattning</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div class="container">
+<div id="header" align="center">
+<h1 class="title"><p>Ingenjörsprocessen Metodik - Sammanfattning</p></h1>
+<h4 class="title"><p>Bok: En koncist introduktion till programvaruteknik, Jalote</p></h1>
+<h4 class="author">Sammanfattning av Victor Winberg</h2>
+</div>
+<p>IEEE, <em>Institute of Electical and Electronics Engineers</em>, definierar ett krav som &quot;Ett villkor på en funktion behövt av (1) en användare för att lösa ett problem eller uppfylla ett mål, (2) ett system för att tillfredsställa ett kontrakt, standard, specifikation, eller annan typ av formellt föreläggande dokument.</p>
+<p>En <em>Software Requirements Specification (SRS)</em> används då man specificerar <em>vad</em> kraven är exakt, men inte <em>hur</em>.</p>
+<h3 id="värdet-av-bra-srs">Värdet av bra SRS</h2>
+<p><strong>En SRS …</strong></p>
+<ul>
+<li><p>…bildar grunden av överensstämmelse mellan klienten och leverantören (utvecklaren) på var produkten ska göra.</p></li>
+<li><p>…förser en referens till bekräftelse på den slutgiltiga produkten.<br />
+</p></li>
+</ul>
+<p><strong>En SRS av högkvalitet …</strong></p>
+<ul>
+<li><p>…är grundläggande för högkvalitets programvara.</p></li>
+<li><p>…minskar utvecklingskostnaden.</p></li>
+</ul>
+<h3 id="krav-processen">Krav-processen</h2>
+<dl>
+<dt>Problemanalys</dt>
+<dd><p>Utgår från ett ”problempåstående”, med syfte att förstå vad programvaran ska erbjuda.</p>
+</dd>
+<dt>Produktbeskrivning</dt>
+<dd><p>Förståelsen som erhålls i <em>problemanalysen</em> dokumenteras noggrant.</p>
+</dd>
+<dt>Validering</dt>
+<dd><p>Säkerställa att kraven i SRS verkligen är uppfyllda.</p>
+</dd>
+</dl>
+<h3 id="kravspecifikation">Kravspecifikation</h2>
+<h4 id="önskvärda-egenskaper-för-en-srs">Önskvärda egenskaper för en SRS</h3>
+<ol>
+<li><p><strong>Korrekt</strong> i varje krav, som representerar något i slutsystemet.</p></li>
+<li><p><strong>Fullständig</strong> i varje krav som programvaran ska göra.</p></li>
+<li><p><strong>Otvetydig</strong> om och endast om varje krav har en och enbart en tolkning.</p></li>
+<li><p><strong>Kontrollerbar</strong> om det existerar någon kostnadspåverkande process som kan verifieras.</p></li>
+<li><p><strong>Konsekvens</strong> om det inte finns något krav som krockar med ett annat.</p></li>
+<li><p><strong>Rangordnade efter relevans och/eller stabilitet</strong></p></li>
+</ol>
+<h4 id="komponenterna-i-en-srs">Komponenterna i en SRS</h3>
+<dl>
+<dt>Funktionalitet</dt>
+<dd><p>som förväntas av systemet, relationen mellan input och output.</p>
+</dd>
+<dt>Kvalitet</dt>
+<dd><p>specificerar systemets begränsningar, de statiska och dynamiska. <em>Statiska</em> – innehåller krav på antal terminaler, simultana användare, filer och storlek som ska stödjas. <em>Dynamiska</em> – innehåller begränsningar under körtid, ex responstid.</p>
+</dd>
+<dt>Designbegränsningar på implementeringen</dt>
+<dd><p>syftar på resursbegränsningar, operativsystem, tillförlitlighet och säkerhetsbegränsningar. <em>Standarder följs</em> – kan inkludera rapportformat och kontoprocedurer. <em>Hårdvara begränsningar</em> – kan inkludera vilken typ av maskiner, operativsystem och språk som stöds samt minnesbegränsning. <em>Tillförlitlighet och feltolerans</em> – blir viktigare då systemet blir större och mer komplext. Återställningskrav är en väsentlig del. <em>Säkerhet</em> – på givna kommandon, åtkomstkontroll på viss data, olika åtkomstkrav för olika användare, krav på lösenordsanvändning och krypteringsteknik.</p>
+</dd>
+<dt>Externa gränssnitt</dt>
+<dd><p>specificerar alla interaktioner mellan användare, hårdvara och andra mjukvaror. En manual med alla användarkommandon, skärmformat, hur systemet kommer visas, samt feedback och error-meddelanden.</p>
+</dd>
+</dl>
+<h4 id="struktur-av-kravdokument">Struktur av kravdokument</h3>
+<p>Den generella strukturen visas i <strong>figur [SRS]</strong>. Kortfattat gäller:</p>
+<ul>
+<li><p><em>Introduktionen</em> – ger motiveringen och affärsmålen med detta projektet.</p></li>
+<li><p><em>Allmän beskrivning</em> – förklarar hur projektet förhåller sig till det större systemet och en överblick på alla kraven. <em>Produktperspektiv</em> är relationen mellan denna och andra produkter; självständig eller beroende av andra.</p></li>
+<li><p><em>Detaljerade krav</em> som utvecklaren behöver för att designa och utveckla systemet. <em>Externa gränssnittskrav</em> innefattar alla gränssnitt av mjukvaran för: användare, andra mjukvaror, hårdvaror, och andra system.</p></li>
+</ul>
+<p><span>|p<span>10cm</span>|</span></p>
+<ol>
+<li><p>Introduktion</p>
+<ol>
+<li><p>Syfte</p></li>
+<li><p>Mål</p></li>
+<li><p>Definitioner, Akronymer, och Förkortningar</p></li>
+<li><p>Referenser</p></li>
+<li><p>Överblick</p></li>
+</ol></li>
+<li><p>Allmän beskrivning</p>
+<ol>
+<li><p>Produktperspektiv</p></li>
+<li><p>Produktfunktioner</p></li>
+<li><p>Användaregenskaper</p></li>
+<li><p>Generella begränsningar</p></li>
+<li><p>Antaganden och Beroenden</p></li>
+</ol></li>
+<li><p>Specifika och detaljerade krav</p>
+<ol>
+<li><p>Externa gränssnittskrav</p>
+<ol>
+<li><p>Användargränssnitt</p></li>
+<li><p>Hårdvarugränssnitt</p></li>
+<li><p>Mjukvarugränssnitt</p></li>
+<li><p>Kommunikationsgränssnitt</p></li>
+</ol></li>
+<li><p>Funktionella krav</p>
+<ol>
+<li><p>Läge 1</p>
+<ol>
+<li><p>Funktionskrav 1.1</p></li>
+<li></li>
+<li><p>Funktionskrav 1.n</p></li>
+</ol></li>
+<li></li>
+</ol></li>
+<li><p>Kvalitetskrav</p></li>
+<li><p>Designbegränsningar</p></li>
+<li><p>Attribut</p></li>
+<li><p>Andra krav</p></li>
+</ol></li>
+</ol>
+<p><br />
+</p>
+<h3 id="funktionsspecifikationer-med-användningsfall">Funktionsspecifikationer med användningsfall</h2>
+<p>Funktionskrav är ofta kärnpunkten i ett SRS.</p>
+<h4 id="grunder">Grunder</h3>
+<p>Termer för användningsfall visas i tabell nedan.</p>
+<p><span>|p<span>3.5cm</span>|p<span>9cm</span>|</span></p>
+<p><strong>Term</strong> &amp;</p>
+<p><strong>Definition</strong><br />
+Aktör &amp; En person eller system som använder systemet för att uppnå något mål<br />
+Huvudaktör &amp; Huvudaktör som initialiserar användningsfallet och vars mål tillfredsställer det huvudsakliga målet.<br />
+Scenario &amp; Ett antal handlingar som utförts för att nå ett mål under specifika förhållanden.<br />
+Framgångsscenario &amp; Beskriver när alla interaktionen sker felfritt i ett scenario.<br />
+Undantagsscenarion &amp; Beskriver systembeteendet om något steg i huvudscenariot inte slutfördes lyckat.<br />
+</p>
+<h4 id="exempel">Exempel</h3>
+<p>Huvudscenarion i ett auktionssystem visas i <strong>figur [akt]</strong>.</p>
+<p><span>|p<span>12cm</span>|</span></p>
+<p><strong>UC1: Sätt ett objekt för auktion</strong><br />
+<strong><em>Huvudaktör</em>:</strong> Säljare<br />
+<strong><em>Förutsättning</em>:</strong> Säljare har loggat in<br />
+<strong><em>Framgångsscenario</em>:</strong><br />
+</p>
+<ol>
+<li><p>Säljaren sätter in ett objekt (kategori, beskrivning, bild, etc.) för auktion</p></li>
+<li><p>System visar senaste priser för liknande objekt till säljaren</p></li>
+<li><p>Säljaren anger utropspris och ett datum då auktionen stänger</p></li>
+<li><p>System accepterar objektet och sätter upp det</p></li>
+</ol>
+<p><strong><em>Undantagsscenarier</em>:</strong></p>
+<ol>
+<li><p>Det finns inga tidigare inlägg av denna kategori Systemet berättar för säljaren denna situation</p></li>
+</ol>
+<p><strong>UC2: Göra ett bud</strong><br />
+<strong><em>Huvudaktör</em>:</strong> Köparen<br />
+<strong><em>Förutsättning</em>:</strong> Köparen har loggat in<br />
+<strong><em>Framgångsscenario</em>:</strong></p>
+<ol>
+<li><p>Köparen söker eller surfar och väljer vissa objekt</p></li>
+<li><p>System visar säljarens rank, startbud, nuvarande bud, och högsta budet; Frågar köparen att lägga ett bud</p></li>
+<li><p>Köparen anger en köpkurs</p></li>
+<li><p>System accepterar budet; Blockerar dessa pengar på budgivarens konto</p></li>
+<li><p>Systemet uppdaterar max köpkursen, informerar andra användare, och uppdaterar poster för objektet</p></li>
+</ol>
+<p><strong><em>Undantagsscenarier</em>:</strong></p>
+<ol>
+<li><p>Budpriset är lägre än det nuvarande högsta System informerar budgivaren och ber om ett återbud</p></li>
+<li><p>Anbudsgivaren har inte tillräckligt med pengar på sitt konto System avbryter budet, ber användaren att fylla på pengar</p></li>
+</ol>
+<p><strong>UC3: Komplett auktion av ett objekt</strong><br />
+<strong><em>Huvudaktör</em>:</strong> Auktionssystemet<br />
+<strong><em>Förutsättning</em>:</strong> Sista dag för budgivning har uppnåtts<br />
+<strong><em>Framgångsscenario</em>:</strong></p>
+<ol>
+<li><p>Välj högstbjudande; skicka e-post till utvalda budgivare och säljare där slutgiltiga bud pris informeras; skicka e-post till andra budgivare också</p></li>
+<li><p>Debitera budgivarens konto och kreditera säljarens</p></li>
+<li><p>Avblockera alla andra anbudsgivare fonder</p></li>
+<li><p>Överför från säljarens konto till organisationens konto</p></li>
+<li><p>Ta bort objektet från platsen; uppdatera poster</p></li>
+</ol>
+<p><strong><em>Undantagsscenarier</em>:</strong> Inga<br />
+</p>
+<h4 id="utvidgning">Utvidgning</h3>
+<p><span>|p<span>12cm</span>|</span></p>
+<p><strong>UC0: Auktionera ett objekt</strong><br />
+<strong><em>Huvudaktör</em>:</strong> Auktionssystemet<br />
+<strong><em>Förutsättning</em>:</strong> Inga<br />
+<strong><em>Framgångsscenario</em>:</strong><br />
+</p>
+<ol>
+<li><p>Säljaren utför <em>Sätt ett objekt för auktion</em></p></li>
+<li><p>Olika budgivare utför <em>Göra ett bud</em></p></li>
+<li><p>På slutdatum utförs <em>Komplett auktion av ett system</em></p></li>
+<li><p>Erhåll feedback från säljare och köpare, uppdatera protokoll</p></li>
+</ol>
+<p><br />
+</p>
+<h4 id="skapa-användningsfall">Skapa användningsfall</h3>
+<p>UCs kan ses som sagoberättande, med enkel och naturlig text. Dessa innefattar fyra naturliga steg:</p>
+<ul>
+<li><p><em>Aktörer och dess mål</em> används utav användningsfallen, där aktörens mål ofta är användningsfallets namn</p></li>
+<li><p><em>Framgångsscenario</em> ska existera i alla användningsfall</p></li>
+<li><p><em>Misslyckande villkor</em> ges ur huvudscenariot. Innan beslut på vad som ska ske därefter listar man dessa.</p></li>
+<li><p><em>Misslyckande handlingar</em> är den svåraste delen, där hantering av fel ligger i fokus. Vilket ofta i sin tur skapar flera nya regler och aktörer.</p></li>
+</ul>
+<p>Vidare kan dessa fyra nivåerna guida en igenom skapandet av användningsfall:</p>
+<ul>
+<li><p>Identifiera aktörer och mål. Detta tydliggör syftet av systemet och ger en överblick av systemets möjligheter.</p></li>
+<li><p>Förstå och specificera alla huvudsakliga framgångsscenarier, för att tydliggöra de huvudsakliga funktionerna.</p></li>
+<li><p>När huvudscenarierna och huvudfunktionerna är specificerade kan de misslyckande villkoren undersökas.</p></li>
+<li><p>Slutligen specificeras hur felen hanteras.</p></li>
+</ul>
+<h3 id="andra-tillvägagångssätt-för-analyser">Andra tillvägagångssätt för analyser</h2>
+<h4 id="dataflödesdiagram">Dataflödesdiagram</h3>
+<p><em>Data Flow Diagrams (DFDs)</em> även kallad dataflödesgrafer. Dessa visar flödet av data genom systemet. Där systemet ses som en funktion som transporterar inputs till önskade outputs. Illustreras i <strong>figur [dfd]</strong>.</p>
+<div class="figure">
+<img src="DFD.jpg" alt="Dataflödesdiagram" height="226" />
+<p class="caption">Dataflödesdiagram<span data-label="dfd"></span></p>
+</div>
+<h4 id="entitet-relationsdiagram">Entitet relationsdiagram</h3>
+<p><em>Entity Relationship Diagram (ERD)</em> illustrerar hur olika objekt är relaterade till varandra, men inte hur de processas, påverkas eller förändras. Exempel illustreras nedan.</p>
+<p><img src="ER.jpg" alt="image" /></p>
+<h3 id="validering">Validering</h2>
+<p>Det finns flera typer av fel, men de mest vanliga kan klassificeras i fyra typer: Utelämning, Icke konsekvent, Felaktig fakta och Tvetydighet:</p>
+<ul>
+<li><p><em>Utelämning</em> av något användarkrav som inte finns med i SRS, dvs ofullständig SRS.</p></li>
+<li><p><em>Icke konsekvent</em> kan bero på motsägelser i själva kravet eller inkompatibilitet mellan krav.</p></li>
+<li><p><em>Felaktig fakta</em> i SRS.</p></li>
+<li><p><em>Tvetydighet</em> när ett krav har olika innebörd.</p></li>
+</ul>
+<h1 id="planering-av-programvaruprojekt">Planering av programvaruprojekt</h1>
+<p>Planeringen innefattas av två huvudsakliga moment:</p>
+<p>1. den översiktliga <em>projektledningsplanen</em> som fastställer projektets mål över kostnad, planering och kvalitetsfronter samt definierar planen för riskhantering, projektövervakning etc.</p>
+<p>2. den <em>detaljerade projektplanen</em> som specificerar uppgifter som behövs för att nå de mål, resurserna som ska utföra dem, och deras schema.</p>
+<h3 id="effort-uppskattning"><em>Effort</em> uppskattning</h2>
+<h4 id="top-down-uppskattningsstrategi">Top-Down uppskattningsstrategi</h3>
+<p>Den viktigaste faktorn är storleken av projektet och <em>effort</em>-en ses som en funktion av <em>projektstorlek</em>. Om produktiviteten är P, KLOC/PM (Personmånader), är <em>effort</em>-en STORLEK/P.</p>
+<p>En mer generell funktion är: <em>EFFORT</em> = a <span class="math inline">⋅</span> STORLEK <span class="math inline"><em></em><sup>2</sup></span>, där a och b är konstanter, och storlek är oftast KLOC.</p>
+<p>Den konstruktiva kostnadsmodell, COnstructive COst MOdel (COCOMO), initial uppskattningen för ett organiskt projekt, är <span class="math inline"><em>E</em> = 3.9 ⋅ (<em>S</em><em>I</em><em>Z</em><em>E</em>)<sup>0.91</sup>.</span></p>
+<p>Den anpassande <em>efforts</em>-faktorn (EAF) ges utav att ta relevanta kostnadsfaktorer multiplicerat med varandra. Sedan ges den initiala <em>effort</em>-en av <span class="math inline"><em>E</em><sub><em>i</em></sub> = 3.9 * (<em>K</em><em>L</em><em>O</em><em>C</em>)<sup>0.91</sup> = 7.3<em>P</em><em>M</em></span>. Slutligen ges <span class="math inline"><em>E</em> = 1.52 * 7.3 = 11.1<em>P</em><em>M</em></span>.</p>
+<h4 id="bottom-down-uppskattningsstrategi">Bottom-Down uppskattningsstrategi</h3>
+<p>Först delas projektet upp i olika delarbeten och sedan beräknas dessa delarbeten. Denna strategi är en <em>verksamhetsbaserad (activity-based) uppskattning</em>.<br />
+Proceduren för Bottom-Down uppskattningsstrategi kan sammanfattas såhär:</p>
+<ol>
+<li><p>Identifiera moduler i systemet och klassificera dessa som enkel, medel eller komplex.</p></li>
+<li><p>Avgör den genomsnittliga kodning <em>effort</em>-en för enkel/medel/komplex.</p></li>
+<li><p>Få den totala kodning <em>effort</em>-en av alla kodnings <em>efforts</em> med olika typer av moduler.</p></li>
+<li><p>Med hjälp av <em>effort</em> uppdelningen för liknande projekt, uppskatta <em>the effort</em> för andra delarbeten och den totala <em>effort</em>-en.</p></li>
+<li><p>Förfina uppskattningen baserat på projektspecifika faktorer.</p></li>
+</ol>
+<h3 id="projektplanering-och-bemanning">Projektplanering och bemanning</h2>
+<p>Med en beräknad <em>effort</em> i PM (Personmånader) blir det frestande att välja vilken varaktighet som helst med en lämplig arbetsgruppsstorlek. Dessvärre kan inte allt göras parallellt, utan det existerar delarbeten som är beroende av att andra delarbeten är klara.</p>
+<p>En modell som kan användas för varaktighet ges utav <span class="math inline"><em>M</em> = 4.1<em>E</em><sup>0.36</sup></span>, där M är kalendermånader. I COCOMO, för organisk typ av mjukvara ges varaktigheten till <span class="math inline"><em>M</em> = 2.5<em>E</em><sup>0.38</sup></span>.</p>
+<p>En annan metod för projekt av medelstorlek kallas kvadratrotscheck, <em>square root check</em>. Denna check föreslår att planeringen kan vara runt kvadratroten ur den totala <em>effort</em>-en.</p>
+<p>Slutligen finns arbetskrafts-rampen, <em>manpower ramp</em>. Där arbetskraft delas upp i tre större faser: <em>Design</em>, <em>Build</em> och <em>Test</em>, som ses i <strong>figur [ramp]</strong>. Generellt tar designen en fjärdedel, programmeringen hälften och testandet en fjärdedel. COCOMO ger 19% för design, 62% för programmering och 18% för integrering.</p>
+<div class="figure">
+<img src="Arbetskrafts-ramp.png" alt="Arbetskrafts-ramp för ett typiskt projekt" width="377" />
+<p class="caption">Arbetskrafts-ramp för ett typiskt projekt<span data-label="ramp"></span></p>
+</div>
+<h3 id="kvalitetsplanering">Kvalitetsplanering</h2>
+<p>Figur över felaktig injektion och borttagnings-cykel<br />
+<img src="Felaktighet.png" alt="image" width="340" /></p>
+<h3 id="riskhanteringsplanering">Riskhanteringsplanering</h2>
+<h4 id="riskhanteringskoncept">Riskhanteringskoncept</h3>
+<p><em>Risk</em> definieras som exponeringen för chansen för skada eller förlust. Risk är alltså en sannolikhet att något negativt kan hända.<br />
+<em>Riskhantering</em> är det område som försöker se till att riskernas konsekvens på kostnad, kvalitet och tidsschema är minimal. Riskhantering ska alltså identifiera de oönskade händelserna och därefter göra en riskbedömning och riskkontroll.</p>
+<h4 id="riskbedömning">Riskbedömning</h3>
+<p>Första steget är <em>riskidentifiering</em> som görs genom checklista av risker, undersökning, möten och brainstorming. Boehm har producerat en topp 10 riskchecklista med de 10 mest sannolika riskerna vid ett programvaruprojekt, visas nedan.<br />
+<img src="Risks.png" alt="image" width="453" /></p>
+<h4 id="riskkontroll">Riskkontroll</h3>
+<p>För de flesta riskerna är strategin att utföra en åtgärd för att reducera sannolikheten eller förlusten för risken. Detta görs genom <em>riskreducerande steg</em> som listas upp med en planeringsstrategi.</p>
+<h4 id="en-praktisk-riskhanterings-planeringsstrategi">En praktisk riskhanterings-planeringsstrategi</h3>
+<ol>
+<li><p>Betygssätt sannolikheten för varje risk som låg, mellan eller hög.</p></li>
+<li><p>Bedöm effekten för varje risk som föregående.</p></li>
+<li><p>Betygssätt varje risk baserad på sannolikhet och effekt. I händelse av konflikt, använd eget omdöme.</p></li>
+<li><p>Välj de topp-riskerna för minimering och spårning.</p></li>
+</ol>
+<h3 id="projektövervakningsplan">Projektövervakningsplan</h2>
+<h4 id="mätningar">Mätningar</h3>
+<p><em>Effort</em> är den huvudsakliga resurs som konsumeras i ett programvaruprojekt. Därför är det viktigt att observera <em>effort</em>-en för att bedöma om projektet utförs inom budget. Detta görs genom individuella tidsrapporter veckovis.<br />
+Här måste även defekter loggas för vidare övervakning över antal defekter.<br />
+Projektets storlek representerar indirekt beställarens önskade funktionalitet och många specifikationer är normaliserad med avseende på storlek. Storleken kan mätas med <em>LOC</em> eller funktionspunkter.</p>
+<h4 id="projektövervakning-och-spårning">Projektövervakning och spårning</h3>
+<p>Mätning av <em>aktivitetsnivå</em> försäkrar att varje aktivitet har utförts korrekt och inom tidsramarna. Detta kan göras dagligen i projektgrupper eller genom att projektledaren kontrollerar alla uppgifter som ska vara slutförda denna dag.</p>
+<p><em>Statusrapport</em> förbereds ofta veckovis av vad som har hänt och vad behöver göras. En sammanfattning av slutförda aktiviteter sedan den förra statusrapporten, försenade aktiviteter, problem man stött på som behöver uppmärksammas och om allt är klart för nästa vecka.</p>
+<p><em>Milstolpe analys</em> görs vid varje milstolpe eller varje par vecka.</p>
+<h3 id="detaljerad-schemaläggning">Detaljerad schemaläggning</h2>
+<p>Den huvudsakliga fasen delas upp i mindre schemalagda aktiviteter på ett hierarkisk vis. T ex: utvecklande, granskande, fixande, osv. För varje uppgift estimerar projektledaren hur lång tid som krävs och tilldelar en lämplig resurs så att den övergripande tidsplanen och effort-en följs.</p>
+<p>Den detaljerade schemaläggningen görs sällan för hela projektet på en gång. För varje lägstanivås-aktivitet specificeras effort, tidsram, startdatum, slutdatum och resurser. Verktyg som Microsoft Project eller ett kalkylblad kan vara användbart för detta.</p>
+<p>En detaljerad schemaläggningen är aldrig statisk. Ändringar behövs om den verkliga utvecklingen inte går som först planerat.</p>
+<p>Det slutgiltiga schemat, som måste underhållas frekvent med lämpligt verktyg, är den projektplan som är “live”.</p>
+<div class="figure">
+<img src="Highlevel.png" alt="Högnivåsschema för ett projekt" width="377" />
+<p class="caption">Högnivåsschema för ett projekt<span data-label="highlevelschedule"></span></p>
+</div>
+<p>Ett högnivåsschema, som ses i <strong>figur [highlevelschedule]</strong>, är ett resultat av en övergripande projektplanering, och inte lämplig för att tilldela resurser och detaljerad planering. Istället delas uppgifterna upp i flera schemalagda aktiviteter, som ses i <strong>figur [detailschedule]</strong>.</p>
+<div class="figure">
+<img src="DetailedSchedule.png" alt="Del av ett detaljerat schema" width="377" />
+<p class="caption">Del av ett detaljerat schema<span data-label="detailschedule"></span></p>
+</div>
+<p>Som vi sett tidigare är tiden som spenderas för kodning en liten del av ett programvaruprojekts kostnad, medan testning och underhållning konsumerar den större delen. När man kodar är det viktigt att tänka på att program inte ska vara konstruerade så att de är enkla att skriva utan enkla att läsa och förstå.</p>
+<p>Att ha läsbarhet och begriplighet som ett klart mål kan självt bidra till att det uppnås (Finns ett känt experiment av <strong>Weinberg</strong>). Innan ett program används av andra måste denna kod vara verifierad, vanligtvis genom testning. På programmeringsnivå kontrolleras koden programmeraren utvecklat med så kallat enhetstestning.</p>
+<p>Enhetstestning utförs genom testfall med fokus på testning av mindre program eller enheter/moduler. Urval av testfall är en central fråga i alla former av testning. Enhetstestaren (ofta utvecklaren för enheten) utför flera testfall och studerar enhetens beteende, för att bedömning om enheten fungerar eller inte.</p>
+<p>Problemet med enhetstestning är att enheten som testas inte är ett fullständigt system, det är inte självexekverbart. Dessutom kanske enheten använder sig av andra enheter som inte är utvecklade än. Drivrutiner spelar en väsentlig roll, dessa är ansvariga för att få testdata, exekvera enheten och rapportera resultatet. Stubbar (stubs) fungerar som “dummies”, enheter som används i stället för den faktiska modulen för att underlätta enhetstestning.</p>
+<h4 id="testning-av-processuella-enheter">Testning av processuella enheter</h3>
+<p>Testning av en enhet f innefattar följande steg:</p>
+<ol>
+<li><p>Sätt systemets tillstånd till det som begärs i testfallet.</p></li>
+<li><p>Sätt lämpliga parametervärden.</p></li>
+<li><p>Kalla på proceduren f() med parametrarna.</p></li>
+<li><p>Jämför resultatet av f med det förväntade resultatet.</p></li>
+<li><p>Fastställ om testfallet har lyckats eller misslyckats.</p></li>
+</ol>
+<h4 id="enhetstestning-av-klasser">Enhetstestning av klasser</h3>
+<p>I objektorienterad programmering, är det oftast objektet av en klass som testas. För att testa en klass skapar man därmed ett objekt utav klassen och anropar en metod på den. Detta måste göras flertal gånger, och på alla metoder.</p>
+<p>Allt detta underlättas om vi använder ramverk som JUnit. Testaren måste då skapa en annan klass som ärver from JUnit, därmed måste JUnits ramverk importeras av denna klass.</p>
+<h3 id="kodgranskning">Kodgranskning</h2>
+<p>Detta kan ses som “statisk testning” och görs också på enhetsnivå. Där felaktigheter hittas i koden genom en manuell process.</p>
+<p>Kodgranskning görs av en grupp kamrater som följer en klart fastställd process. Några nyckelegenskaper är:</p>
+<ul>
+<li><p>Kodgranskning utförs av programmerare, för programmerare.</p></li>
+<li><p>Det är en strukturerad process med fastställda uppgifter för deltagarna.</p></li>
+<li><p>Fokus ligger på att identifiera brister, inte att reparera dem.</p></li>
+<li><p>Inspektionsdata lagras och används för att övervaka effektiviteten i granskningsprocessen.</p></li>
+</ul>
+<h4 id="planering">Planering</h3>
+<p>Målet med planeringsfasen är att förbereda granskningen. En granskningsgrupp skapas, där programmerare för koden borde inkluderas, på minst tre personer med en gruppledare.</p>
+<p>En checklista som bör användas under granskningen kan förberedas (eller befintlig checklista). Målet med granskningen är att förbättra kvalitén, därtill brister i koden. Kvalitetsfrågor som innefattar effektivitet, överensstämmelse med kodningsnormer, etc.</p>
+<h4 id="självgranskning">Självgranskning</h3>
+<p>Varje granskare gör en <em>självgranskning</em> av koden. Hela koden gås igenom och noterar alla potentiella brister. Ett standardformulär kan användas som innehåller projektnamn/grupp, granskare, tid spenderad och en lista av brister med radnummer, position, beskrivning och allvarlighet.</p>
+<h4 id="granskningsmöte-i-grupp">Granskningsmöte i grupp</h3>
+<p>Den slutgiltiga granskningen, med lista av brister, ska sammansättas, baserad på den ursprungliga listan av brister.</p>
+<p>En sammanställning bör innehålla projektbeskrivning (projektnamn, storlek i LOC, etc), effort i persontimmar (inkl. förberedning, gruppmöte och total effort), brister (uppdelat i större och mindre påverkan), granskningsstatus (godkänd eller icke godkänd) och kommentarer.</p>
+<h3 id="mätning">Mätning</h2>
+<p>Traditionellt låg mätningsfokus på slutprodukten. På sätt och vis ligger all användning för mätning av medelstora produkters krav och utformning i princip för att säkerställa den slutgiltiga produkten har hög kvalité och att produktiviteten för projektet förblir hög. För koden, är de vanligaste måtten storlek och komplexitet.</p>
+<h4 id="storleksmätning">Storleksmätning</h3>
+<p>Den vanligaste metoden är att mäta antalet rader kod (LOC), eller antalet rader kod som slutligen levereras. Problemet med LOC är att antalet rader kod varierar oerhört beroende på programmeringsspråk. Dessutom kan man i samma programmeringsspråk räkna rader kod på olika sätt, om man räknar med kommentarer och blanka rader eller inte.</p>
+<h4 id="komplexitetsmätning">Komplexitetsmätning</h3>
+<p>Produktivitet, om denna mäts i antalet rader kod per timme, kan variera en hel del beroende på komplexiteten av systemet som utvecklas. Förenklat har komplexiteten av systemet stor påverkan på kostnaden för underhåll av programmet. Vidare finns det flertal olika metoder för att beräkna komplexiteten av ett program. I ett programvaruprojekt kan felaktigheter införas när som helst under utvecklingen. Genom att upptäcka fel och brister efter varje fas, med olika tekniker som granskning, förblir vissa fel oupptäckta. För att försäkra kvaliteten av slutprodukten måste dessa fel bort.</p>
+<p>Det finns två tillvägagångssätt för att upptäcka dessa fel, statiskt och dynamiskt. I statisk analys exekveras inte koden, istället utvärderas koden genom en process. I dynamisk analys exekveras koden och detta används för att hitta fel.</p>
+<p>Under testning, exekveras programvaran med ett begränsat antal testfall (detta kallas software/system under test, SUT), och beteendet hos systemet för dessa testfall utvärderas systemet för att avgöra om systemet fungerar som förväntat. I black-box testning struntar man i strukturen av programmet. Testfall avgörs enbart utifrån de krav eller specifikationerna för programmet eller enheten, och de interna delarna av enheten eller programmet påverkar inte testfallen.</p>
+<p>Testaren känner enbart till inmatningar som kan göras till programmet och vad utmatningen av systemet ska ge.</p>
+<h4 id="ekvivalensklass-partitionering">Ekvivalensklass partitionering</h3>
+<p>Eftersom vi inte kan göra heltäckande tester, är nästa naturliga tillvägagångssätt att dela upp inmatnings område till en uppsättning av ekvivalensklasser, så att om programmet fungerar korrekt för ett värde, så kommer det att fungera på rätt sätt för alla andra värden i den klassen.</p>
+<h4 id="gränsvärdesanalys">Gränsvärdesanalys</h3>
+<p>Det har observerats att program som fungerar på rätt sätt för en uppsättning värden i en ekvivalensklass misslyckas på några speciella värden. Testfall som har värden i gränslandet för ekvivalensklasser är därför sannolika att vara testfall som täcker flera test, och välja ut sådana testfall är syftet med gränsvärdesanalys.</p>
+<h3 id="white-box-testning">White-box testning</h2>
+<p>I white-box testning testas implementationen av programmet. Avsikten med dessa tester är inte att utnyttja alla de olika in- eller utgående förhållanden utan att utnyttja olika programstrukturer och datastrukturer som används i programmet. White-box testning kallas även strukturell testning, eftersom strukturen testas.</p>
+<h3 id="mätning-1">Mätning</h2>
+<p>Kvaliteten av den slutgiltiga levererande programvaran beror i huvudsak på kvaliteten på testningen, några naturliga frågor under testprocessen:</p>
+<ul>
+<li><p>Hur bra är testningen som gjorts?</p></li>
+<li><p>Hur är kvaliteten eller tillförlitligheten hos programvaran efter testningen har slutförts?</p></li>
+</ul>
+</div>
+</body>
+</html>

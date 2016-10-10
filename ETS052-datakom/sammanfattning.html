@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Datorkommunikation - Sammanfattning</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div class="container">
+<div id="header" align="center">
+<h1 class="title">Datorkommunikation</h1>
+<h4 class="title">Sammanfattning av Victor Winberg</h1>
+</div>
+<h2 id="kapitel-2.1-2.3">Kapitel 2.1-2.3</h1>
+<h3 id="binärdata-ettor-och-nollor">Binärdata – ettor och nollor</h2>
+<p><strong>Sampling –</strong> kontinuerlig signal med viss bandbredd (Hz)<br />
+<strong>Kvantisering</strong> <strong>–</strong> avrundning (kan ge kvantiseringsfel/avrundningsfel)<br />
+<strong>Kodning –</strong> binär form, 8 bitar ger 2<sup>8</sup> amplitudnivåer</p>
+<h3 id="från-information-till-binärdata">Från information till binärdata</h2>
+<p><strong>Text –</strong> kodningsstandard ASCII, ISO, UTF-8 m.fl.<br />
+<strong>Ljud –</strong> samplas mellan 300 – 3400 Hz<br />
+Telenät använder PCM – 8000 Hz, 8 bitar, 64 kbps<br />
+Mobil använder GSM – algoritmer 13 kbps<br />
+Musik också PCM – 44.1 kHz, 16 bitar, 1.4 Mbps<br />
+<strong>Bild –</strong> matrissampling (pixlar), RGB<br />
+<strong>Video –</strong> bildfrekvens (bilder per sekund), bildupplösning (antal pixlar)</p>
+<h2 id="kapitel-3.1-3.2">Kapitel 3.1-3.2</h1>
+<h3 id="den-fysiska-länken">Den fysiska länken</h2>
+<p><strong>Utbredningsmedium –</strong> överför information med elektroniska signaler<br />
+<strong>Transmissions-, överförings- eller bithastighet (bps) –</strong> länkens <em>digitala</em> överföringsförmåga<br />
+<strong>Utbredningshastighet –</strong> hastigheten <em>signalen</em> förflyttar sig med<br />
+<strong>Bandbredd –</strong> länkens analoga överföringsförmåga<br />
+<strong>Störningar</strong> sker pga. Utbredningsmediet och yttre förhållanden</p>
+<h3 id="några-utbredningsmedium">Några utbredningsmedium:</h3>
+<ul>
+<li><p><strong>Tvinnad åarkabel –</strong> två tvinnade kopparledare (låg resistans)</p></li>
+<li><p><strong>Koaxialkabel –</strong> enkel kopparledare omgiven av ett metallhölje med isolering däremellan</p></li>
+<li><p><strong>Optisk fiberkabel –</strong> mycket tunn tråd (plast/glas) med tre skikt: fiberkärna, fibervägg och skydd</p></li>
+<li><p><strong>Rymden –</strong> trådlös kommunikation +inga kablar -mycket störningar</p></li>
+</ul>
+<h3 id="digital-kommunikation-skickas-data-i-form-av-bitar-över-en-länk">Digital kommunikation – skickas data i form av bitar över en länk</h2>
+<p><strong>Frekvensband</strong> har bandbredd med visst antal frekvenser som skickas över en kanal (fysiskt eller logiskt)</p>
+<p>Digital transmission – ettor och nollor representeras av olika spänningsnivåer (för elektroniska signaler) eller energinivåer (för optiska signaler)</p>
+<ul>
+<li><p><em>Non-return-to-zero (NRZ)</em><br />
+Nolla ofta positiv amplitud, etta ofta negativ amplitud.<br />
+Eftersom signalnivån kan vara lika en längre stund uppstår synkroniseringsproblem mellan sändare och mottagare.</p></li>
+<li><p><em>Manchester<br />
+</em>Till skillnad från NRZ inverterar alltid manchester i mitten av varje bit.<br />
+Nolla är övergång från positiv till negativ spänning, etta är från negativ till positiv spänning.</p></li>
+<li><p><em>Differential manchester<br />
+</em>Samma som Manchester förutom att etta representeras som ingen ändring av intervallet, vilket gör att frekvensen blir lägre.</p></li>
+</ul>
+<p>Analog transmission – ettor och nollor representeras av förändringar av en sinusvåg, även kallad bärvågen. Detta kallas modulering av binärdata. Används inom mobiltelefoni, digital radio och tv.<br />
+<strong>Sinusvågen –</strong> <span class="math inline"><em>g</em>(<em>t</em>)=<em>A</em>sin(2<em>π</em><em>f</em><em>t</em> + <em>p</em>)</span>, t tid, A amplitud, f frekvens, p fas</p>
+<h4 id="tre-moduleringar">Tre moduleringar:</h4>
+<ul>
+<li><p><strong>Amplitud –</strong> -känslig för störningar</p></li>
+<li><p><strong>Frekvens –</strong> +ej lika störningskänslig -begränsad bandbredd</p></li>
+<li><p><strong>Fasmodulering –</strong> +kan representera 2 bitar +ej störningskänslig<br />
+-mottagaren måste känna av små fasskillnader</p></li>
+</ul>
+<h2 id="kapitel-3.5-3.6-ej-cdm">Kapitel 3.5-3.6 (ej CDM)</h1>
+<h3 id="signalkvalitet-under-överföringen-förvrängs-signaler-och-blir-därmed-försämrade">Signalkvalitet – under överföringen förvrängs signaler och blir därmed försämrade</h2>
+<p><strong>Dämpning (dB) –</strong> signalenergin minskar, därmed amplituden. Detta motverkas m.h.a. förstärkare.<br />
+<strong>Distorsion –</strong> signalen ändrar form. Uppstår I fall av flera frekvenser. Olika frekvenser dämpas olika (amplituddistorsion), dessutom finns olika utbredningshastigheter (löptidsdistorsion).<br />
+Vid analog-digital omvandling uppstår kvantiseringsfel.<br />
+<strong>Brus –</strong> bl.a. från atmosfären, kan aldrig bli brusfritt. Begreppet signal/brus-förhållande (signal-to-noise ratio, SNR).<br />
+<span class="math inline"><em>S</em><em>N</em><em>R</em> = 10log(<em>P</em><sub>2</sub>/<em>P</em><sub>1</sub>)<em>d</em><em>B</em></span>, <span class="math inline"><em>P</em><sub>1</sub></span> signalens medeleffekt, <span class="math inline"><em>P</em><sub>2</sub></span> brusets medeleffekt<br />
+<strong>Överhörning –</strong> speciellt brus då en länk störs av en annan länk. Ex i en parkabel blir den ena sändare och den andra mottagare.<br />
+<strong>Bitfelsfrekvens (bit error ration, BER) –</strong> anger genomsnittet av feluppfattade bitar.<br />
+Ett fel på 10<sup>-6</sup> eller mindre uppfattas ej, 10<sup>-2</sup> ger allvarlig försämring.</p>
+<h3 id="multiplexering">Multiplexering</h2>
+<p>Det finns tre tekniska termer för regler vid datautbyte mellan datorer.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Simplex –</strong> en sänd-riktning är möjlig</p></li>
+<li><p><strong>Halv duplex –</strong> båda riktningar möjligt men inte samtidigt</p></li>
+<li><p><strong>Full duplex –</strong> båda riktningar möjliga och samtidigt. Vid full duplex måste multiplexering användas för att undvika ”krockar”</p></li>
+</ol>
+<p>Multiplexering innebär fysisk uppdelning av logiska länkar, så kallade kanaler. Som i sin tur används av en förbindelse.</p>
+<h3 id="det-finns-fyra-principer-för-multiplexering">Det finns fyra principer för multiplexering:</h3>
+<ol style="list-style-type: decimal">
+<li><p><strong>Rumsmultiplexering (space division multiplexor, SDM) –</strong> används för fysiskt delade medium med flera vägledare ex fiberkablar.</p></li>
+<li><p><strong>Frekvensmultiplexering (FDM) –</strong> länkens bandbredd delas upp i frekvensband</p></li>
+</ol>
+<ol style="list-style-type: decimal">
+<li><p><strong>Synkron tidsmultiplexering (STDM) –</strong> länkkapaciteten delas upp i ramar med ett antal tidsluckor så får kanalerna turas om att skicka information för att underlätta synkronisering finns det en synkroniseringsbit i varje ram.</p></li>
+<li><p><strong>Asynkron/Statisk tidsmultiplexering –</strong> även här följs turordning, dock ges kapacitet enbart när kanalen har något att skicka och de andra kanalerna ges därmed mer kapacitet.</p></li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li><p><strong>Koduppdelad multiplexering (CDM) –</strong> trådlösa länkar, då kan alla kanaler skicka samtidigt över samma frekvensband. Kanaler skiljs istället av olika koder med spread-spectrum-tekniken:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Fast hopping (FHSS) –</strong> koden blir hoppsekvensen. Olika kanaler har olika, pseudo-slumpmässiga, hoppsekvenser, vilket gör det möjligt att alla kan skicka samtidigt.</p></li>
+<li><p><strong>Chip-sekvens (DSSS) –</strong> koden blir en chip-sekvens. Olika kanaler har olika chip-sekvenser.</p></li>
+</ol></li>
+</ol>
+<h2 id="kapitel-4.1-4.3-4.5">Kapitel 4.1-4.3, 4.5</h1>
+<h3 id="protokoll-datorers-språk-och-regler-för-dataöverföring">Protokoll – datorers språk och regler för dataöverföring</h2>
+<h3 id="grundprinciper-liknas-vid-människors-kommunikation">Grundprinciper – liknas vid människors kommunikation</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Människor</th>
+<th align="left">Datorer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Hej</td>
+<td align="left">New connection</td>
+</tr>
+<tr class="even">
+<td align="left">Hej</td>
+<td align="left">Connection approved</td>
+</tr>
+<tr class="odd">
+<td align="left">Vad är klockan?</td>
+<td align="left">Request data</td>
+</tr>
+<tr class="even">
+<td align="left">14:00</td>
+<td align="left">Data transfer</td>
+</tr>
+<tr class="odd">
+<td align="left">Hejdå!</td>
+<td align="left">End connection</td>
+</tr>
+<tr class="even">
+<td align="left">Hejdå!</td>
+<td align="left">Connection ended</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datapaket-information-delas-upp-i-mindre-delar-kallade-paket.-med-huvud-data-och-svans">Datapaket – information delas upp i mindre delar, kallade paket. Med huvud, data och svans</h3>
+<p>Två viktiga begrepp:<br />
+<strong>Nyttolast (payload) –</strong> data mottagaren har nytta av<br />
+<strong>Overhead –</strong> data som behövs för att komma fram</p>
+<h3 id="applikationsprotokoll-protokoll-mellan-användarapplikationer">Applikationsprotokoll – protokoll mellan användarapplikationer</h3>
+<p>Datapaketen kallas ofta för meddelande, pga. de skrivs i klartext.<br />
+<strong>Hyper Text Transfer Protocol (http)</strong> – hämtar webbsidor från datorn.</p>
+<h3 id="länkprotokoll-ser-till-att-överföringen-skall-fungera">Länkprotokoll – ser till att överföringen skall fungera</h3>
+<p>Denna uppdelning av funktionalitet i olika protokoll gör att varje protokoll blir mindre komplicerat, kallas protokollskikt.</p>
+<p>Termen ram (frame) används istället för paket, eftersom paketet ”ramas in” av flaggor och kontrollbitar.</p>
+<p>Flaggors funktion är att underlätta för mottagaren att detektera när en ram slutar och nästa börjar.</p>
+<h3 id="feldetektering">Feldetektering</h2>
+<p>Ett bitfel uppstår när mottagaren tolkar ett som noll eller noll som ett.</p>
+<p>Grundprincip är att sändaren lägger till fler bitar, som beräknas efter paketets innehåll. Om mottagarens beräkning blir lika, hämtas paketet.</p>
+<h3 id="paritetsbit-enklaste-beräkningen">Paritetsbit – enklaste beräkningen</h3>
+<p>Mottagare och sändare kommer överens om jämn eller udda paritet. Sista biten ser till att antal ettor blir jämt/udda. Problemet är att enbart ett udda antal bitfel detekteras.</p>
+<h3 id="cyklisk-redundanscheck-crc-bitar-representeras-av-ett-polynom-med-paketets-grad-minus-ett">Cyklisk redundanscheck (CRC) – bitar representeras av ett polynom med paketets grad minus ett</h3>
+<p>Ex: <span class="math inline">10011010 → <em>M</em>(<em>x</em>) =  <em>x</em><sup>7</sup> + <em>x</em><sup>4</sup> + <em>x</em><sup>3</sup> + <em>x</em><sup>1</sup></span><br />
+Det finns alltid ett generatorpolynom , C(x) av grad K, som sändare och mottagare är överens om.<br />
+Ex: <span class="math inline"><em>C</em>(<em>x</em>) = <em>x</em><sup>3</sup>+<em>x</em><sup>2</sup> + 1</span>, (=1101)</p>
+<p>Därefter ska R(x) hittas så att <span class="math inline"><em>M</em>(<em>x</em>) • <em>x</em><sup><em>k</em></sup> + <em>R</em>(<em>x</em>)</span>, (=B(x)) är jämt delbart med C(x).<br />
+Ex: <span class="math inline"><em>P</em>(<em>x</em>) = <em>B</em>(<em>x</em>)+<em>R</em>(<em>x</em>)</span></p>
+<p>Detta ger <span class="math inline"><em>P</em>(<em>x</em>) = <em>x</em><sup>10</sup> + <em>x</em><sup>7</sup> + <em>x</em><sup>6</sup> + <em>x</em><sup>4</sup> + <em>x</em><sup>2</sup> + 1</span>, där <span class="math inline"><em>R</em>(<em>x</em>) = <em>x</em><sup>2</sup> + 1</span></p>
+<h3 id="kontrollsumma-checksum-data-delas-upp-i-segment-ofta-16-bitar">Kontrollsumma (checksum) – data delas upp i segment (ofta 16 bitar)</h3>
+<p>Alla segment adderas till en delsumma, överskjutande bitar (carry bits) adderas till delsumman, vilket ger slutsumman. Komplementet skickas sedan vidare.</p>
+<p>Mottagaren delar upp data i samma segment och samma beräkning för slutsumman gäller. Sedan ska komplementet av summan vara noll.</p>
+<h3 id="felhantering">Felhantering</h2>
+<p>Finns två varianter:</p>
+<ol style="list-style-type: decimal">
+<li><p>Mottagaren ser till att sändaren skickar om</p></li>
+<li><p>Mottagaren rättar de fel som hittats</p></li>
+</ol>
+<h3 id="omsändning-sändaren-måste-skicka-om-sitt-paket">Omsändning – Sändaren måste skicka om sitt paket</h3>
+<ul>
+<li><p>Alla paket som kommer fram korrekt bekräftas med ACK</p></li>
+<li><p>Det sker en time-out för sändaren ifall ett ACK inte mottagits på en viss tid</p></li>
+</ul>
+<h4 id="stop-and-wait-arq-enklaste-sändaren-skickar-först-nästa-paket-efter-att-förra-fått-ett-ack">Stop-and-wait ARQ – enklaste, sändaren skickar först nästa paket efter att förra fått ett ACK</h4>
+<p>Nackdelen – ett paket skickas åt gången vilket ger lång tid att skicka flera paket.</p>
+<h4 id="go-back-n-arq-flera-paket-skickas-åt-gången">Go-back-N ARQ – flera paket skickas åt gången</h4>
+<p>Sändaren har ett sändfönster som en buffert på icke-bekräftade paket.<br />
+Vid paketförlust skickar sändaren om paketen i sändfönstret, varpå mottagaren kaster de som redan erhållits.</p>
+<h3 id="point-to-point-protocol-ppp-vanligt-länkprotokoll">Point-to-point protocol (PPP) – vanligt länkprotokoll</h2>
+<p>Kapslar in IP-paket i ett ramformat om ett antal oktetter (grupper om 8 bitar)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">01111110</th>
+<th align="left">1 byte</th>
+<th align="left">1 byte</th>
+<th align="left">2 byte</th>
+<th align="left">Variabel</th>
+<th align="left">2/4 byte</th>
+<th align="left">01111110</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Flagga</td>
+<td align="left">Adress</td>
+<td align="left">Kontroll</td>
+<td align="left">Protokoll</td>
+<td align="left">Data</td>
+<td align="left">CRC</td>
+<td align="left">Flagga</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ppp-har-tre-uppgifter">PPP har tre uppgifter:</h3>
+<ol style="list-style-type: decimal">
+<li><p>Inkapsla paketet till protokollet IP (Internet protocol)</p></li>
+<li><p>Med hjälp av protokollet LCP (Link control protocol) för att kunna etablera, konfigurera och testa länken</p></li>
+<li><p>Förbereder för nätprotokoll m.h.a. NCP (Network control protocol)</p></li>
+</ol>
+<h2 id="kapitel-5.1-5.6-3.3">Kapitel 5.1-5.6, 3.3</h1>
+<h3 id="access-till-nätet">Access till nätet</h2>
+<p>Point-to-point var inte längre praktiskt när fler och fler datorer kopplade upp sig.</p>
+<h3 id="grundprinciper-ett-lokalt-nätverk-lan-ett-datanät-med-begränsad-storlek">Grundprinciper – ett lokalt nätverk (LAN), ett datanät med begränsad storlek</h3>
+<h4 id="nättopologi-minsta-nätverk-med-en-fysisk-länk">Nättopologi – minsta nätverk med en fysisk länk</h4>
+<p>Detta kan uppbyggas på olika sätt, även kallat topologier: Buss, ring, stjärna och trådlöst.</p>
+<h4 id="access-till-länken-olika-tur-regler-accessmetoder">Access till länken – olika tur-regler, accessmetoder</h4>
+<p>Två principer: 1. Kollision uppstår ej. 2. Kollisioner hanteras.<br />
+Trådlös dataöverföring sker på reserverade frekvensband. I Sverige hanterar Post &amp; telestyrelsen (PTS) detta. Det finns licenserade och licensfria band.</p>
+<h4 id="adressering-varje-dator-har-unik-adress">Adressering – varje dator har unik adress</h4>
+<h3 id="accessmetoder-när-datorer-skickar-samtidigt-sker-en-kollision-vilket-överlagras-och-förstörs">Accessmetoder – när datorer skickar samtidigt sker en ”kollision”, vilket överlagras och förstörs</h2>
+<h3 id="polling-två-typer-av-datorer-master-och-slav">Polling – två typer av datorer: master och slav</h3>
+<p>Master styr accessen till länken. Slaven får enbart skicka data på begäran från mastern.</p>
+<p>Fördelar: Inga kollisioner. Nackdelar: En dator måste bli master och detta måste hanteras och kunna byta.</p>
+<h3 id="token-ring-en-tokenstafettpinne-skickas-runt-enbart-dator-med-token-får-skicka">Token ring – en token/stafettpinne skickas runt, enbart dator med ”token” får skicka</h3>
+<p>Datorer kopplat i en ring som både sändare och mottagare. Fungerar även i en logisk ring, fysiskt sätt kopplade i en annan topologi, men logiskt sett som en ring.</p>
+<p>Fördelar: Kapaciteten delas upp lika. Nackdelar: Om enbart en dator vill skicka får denna inte all kapacitet, då token fortfarande måste skickas runt i ringen. Problem att hantera om token försvinner, samt komplicerat att koppla in och ur datorer i ringen, då turordningen ändras.</p>
+<h3 id="aloha-trådlösa-paketförmedlare-via-en-centraldator-via-radio">ALOHA – trådlösa paketförmedlare via en centraldator via radio</h3>
+<p>Enkel accessmetod. Terminaler skickar data precis när de vill skicka och väntar på sitt ACK. Ifall kollision sker ges inget ACK, och terminalen skickar om. Problem att maximalt utnyttjande var låg, 18%.</p>
+<p>Förbättrad version: Slotted ALOHA. Tiden delas upp i tidsluckor med hjälp av en central klocka för synkronisering, vilket ökade maximalt utnyttjande till 37% (det dubbla).</p>
+<h3 id="csmacd-carrier-sense-multiple-access-with-collision-detection">CSMA/CD – Carrier Sense Multiple Access with Collision Detection</h3>
+<p>Utvecklad variant på ALOHA. Datorerna kopplade till en buss där alla har tillgång till länken och allt som skickas över den, men inte själva innehållet av paketen.</p>
+<p>Turordning saknas. Paket skickas när länken är ledig, genom att datorer först lyssnar på länken (carrier sense). Kollisioner kan dock ske ifall datorer lyssnar samtidigt på länken och därefter skickar.</p>
+<p>Kollisioner upptäcks genom avlyssning efter att amplitudnivån blir högre än förväntat. Efter kollision väntar sändaren viss tid innan nästa försök. Blir det kollision igen dubbleras denna tid att vänta, kallad exponential back-off.</p>
+<p>Fördelar: Ensam dator på länken får full kapacitet, lätt att koppla upp sig på länken, varje dator sköter sig själv. Nackdelar: Då fler vill skicka data saknas turordning, vilket kan medföra flera kollisioner.</p>
+<h3 id="större-länkar-fysiska-begränsningar-för-större-länkar">Större länkar – fysiska begränsningar för större länkar</h3>
+<p>Gräns för längre länkar vilket ger signaldämpning och gräns för antalet datorer då länkkapaciteten delas upp. Detta motverkas med repeterare och bryggor.</p>
+<h4 id="reptererare">Reptererare</h4>
+<p>Länken kan inte vara längre än att de två datorerna längst ifrån varandra kan tolka den skickade signalen trots signaldämpningen. Repeterare kopierar och återskapar den passerande signalen.</p>
+<h4 id="bryggor">Bryggor</h4>
+<p>Trots flera repeterare kan länken inte bli alltför lång pga. tiden det tar från dator A till B. Därför måste länkar kopplas ihop.</p>
+<p>En brygga kopplar samman två eller fler nät genom att fungera som en nod. Bryggan tar emot alla ramar som en vanlig dator, men ifall mottagaren finns på en annan länk i bryggans adresstabell skickar bryggan ramen på den.</p>
+<p>Bryggan lär sig adresserna som finns i de olika länkarna genom att göra en tabell av de avsändaradresserna som finns i de ramar som kommer in. En lärande/filtrerande brygga.</p>
+<p>Ibland, då destinationsadress saknas skickas ramen ut genom flooding, dvs paketet skickas till samtliga länkar förutom avsändarens länk.</p>
+<h4 id="broadcast-domän">Broadcast-domän </h4>
+<p>En dataram med broadcast-adressen skickas till alla datorer. Ett lokalt nätverk av länkar, repeterare och bryggor är en broadcast-domän, en broadcast-ram når alla.</p>
+<h3 id="ieee-802.x-institutionen-för-elektronik-och-elektroingenjörers-standardiseringsprojekt">IEEE 802.X – Institutionen för elektronik och elektroingenjörers standardiseringsprojekt</h2>
+<p>Utveckling av internationella standarder för lokala nät.</p>
+<p>Standarderna delar länkhanteraren till ”logical link control” (LLC) och ”medium access control” (MAC). LLC-protokollet kontrollerar den logiska länken mellan sändare och mottagare. MAC-protokollet kontrollerar tillgången till mediet och hatt information kommer fram korrekt samt adresseringen i det lokala nätet.</p>
+<p>Varje dator ges en unik 48-bit lång adress som representeras i hexadecimal form separerat med kolontecken. Broadcast-adressen ges binärt med enbart ettor, hexadecimalt ff:ff:ff:ff:ff:ff.</p>
+</div>
+</body>
+</html>

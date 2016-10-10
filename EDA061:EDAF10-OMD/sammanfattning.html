@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>OMD – Kort sammanfattning</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div class="container">
+<div id="header" align="center">
+<h1 class="title">OMD – Kort sammanfattning</h1>
+<h4> Sammanfattning av Victor Winberg (Källor sista sidan)</h4>
+</div>
+<h2 id="designprinciper">Designprinciper</h1>
+<ul>
+<li><p><strong>ALP - Lokalitetsprincipen</strong> – Hantera funktionalitet så ”långt ner” som möjligt, Ta bort onödiga getters.</p></li>
+<li><p><strong>SRP - Single Responsibility Principle</strong> – En klass har ett ansvarsområde.</p></li>
+<li><p><strong>OCP - Open/Closed Principle</strong> – Det skall vara möjligt att lägga till ny funktionalitet utan att modifiera existerande kod.</p></li>
+<li><p><strong>Integritetsprincipen</strong> – Gör attribut, metoder och klasser så hemliga de går. Lämna inte ut representationen i onödan. En klass skall inte ha tillgång till klasser som den inte behöver.</p></li>
+<li><p><strong>LSP - Liskov Substitution Principle</strong> – Subklasser ska kunna ersätta sina basklasser.</p></li>
+<li><p><strong>ISP - Interface Segregation Principle</strong> – Klasser bör inte tvingas att bero på metoder som de inte använder.</p></li>
+<li><p><strong>DIP - Dependency Inversion Principle (Abstraktionsprincipen)</strong> – Klasser av hög nivå bör inte vara beroende av klasserna på låg nivå; båda bör bero på abstraktioner. Abstraktioner bör inte vara beroende av detaljer. detaljer bör bero på abstraktioner.</p></li>
+</ul>
+<h2 id="stabilitetsprinciper">Stabilitetsprinciper</h1>
+<ul>
+<li><p><strong>Acyclic dependencies principle (ADP)</strong> – Paket skall ej vara cykliskt beroende.</p></li>
+<li><p><strong>Stable dependencies principle (SDP)</strong> – Beroenden skall gå mot stabila paket.</p></li>
+<li><p><strong>Stable abstractions principle (SAP)</strong> – Stabila paket skall vara abstrakta.</p></li>
+</ul>
+<h2 id="designmönster">Designmönster</h1>
+<ul>
+<li><p><strong>Command [Computer]</strong> – Man delegerar arbetet till klasser med enkelt ansvar.</p></li>
+<li><p><strong>Composite [XL]</strong> – implementerar sin &lt;Basklass&gt;, med en lista med typen &lt;Basklass&gt;.</p></li>
+<li><p><strong>Template Method [Computer]</strong> – Bryt ut det som är gemensamt och placera det i en abstrakt superklass.</p></li>
+<li><p><strong>Strategy [Computer, XL]</strong> – Normalt är strategin ett attribut i klassen, men man kan i stället skicka med den som ett argument till en metod som behöver den. ex skriva ut listor med olika prefix.</p></li>
+<li><p><strong>Decorator</strong> – Lägga på ny funktionalitet som utvidgar grundklassen som inparameter.</p></li>
+<li><p><strong>Singleton</strong> - Att det bara skall kunna skapas en instans av klass.</p></li>
+<li><p><strong>Null Object [XL?]</strong> – Programkoden blir enklare om man istället använder ett riktigt objekt för <em>null</em>. Detta är ett exempel på mönstret Null Object.</p></li>
+<li><p><strong>Observer [XL]</strong> – Observer-mönstret används för att separera ”modellen” från användargränssnittet, ”vyn”. Vyn implementerar gränssnittet Observer. Modellen utvidgar klassen Observable.</p></li>
+<li><p><strong>Factory Method [XL]</strong> – vill undvika beroende av konkreta klasser eller måste avgöra vilken sorts objekt som skall skapas vid exekveringen.</p></li>
+</ul>
+<h2 id="uml-och-sekvensdiagram">UML och sekvensdiagram</h1>
+<ul>
+<li><p>Objektdiagram</p></li>
+<li><p>Sekvensdiagram</p></li>
+</ul>
+</div>
+</body>
+</html>
