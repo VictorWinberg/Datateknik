@@ -1,0 +1,612 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}  % Teckenkodning UTF8
+\usepackage[swedish]{babel}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{eqnarray}
+
+\begin{document}
+\begin{center}
+\LARGE Endimensionell Analys A2\\
+\large Sammanställt av Victor Winberg\\
+\end{center}
+\renewcommand{\arraystretch}{1.5}
+\section*{Kapitel 9. Gränsvärden}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 9.1} (Gränsvärde då x $\rightarrow \infty$, s 165). 
+\textit{Vi säger att $f(x)$ har \textbf{gränsvärdet} A då $x \rightarrow \infty$, och skriver}
+\begin{displaymath}
+\lim_{x\rightarrow \infty} f(x) = A,
+\end{displaymath}
+\textit{om$^1$ det för varje tal $\varepsilon > 0$ finns ett tal $\omega_\varepsilon$ sådant att}
+\begin{center}
+$|f(x)-A| < \varepsilon$ \hspace{0.5cm} för alla $x \in D_f$ sådana att $x>\omega_\varepsilon$.
+\end{center}
+\textit{Alternativt skriver vi: $f(x) \rightarrow A$ då $x \rightarrow \infty$.}
+\\
+\scriptsize{$^1$Vi kräver dessutom att $f$ är definierad för godtyckligt stora tal, dvs. att det för varje tal $\lambda$ alltid finns ett $x \in D_f$ sådant att $x > \lambda$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 9.2} (Oegentligt gränsvärde då x $\rightarrow \infty$, s 167).
+\textit{Vi säger att $f(x)$ har det \textbf{oegentliga gränsvärdet} $\infty$ då $x \rightarrow \infty$, och skriver} 
+\begin{displaymath}
+\lim_{x\rightarrow\infty} f(x) = \infty,
+\end{displaymath}
+\textit{om$^1$ det för varje K finns ett tal $\omega_K$ sådant att}
+\begin{center}
+$f(x)>K$ \hspace{0.5cm} \textit{för alla $x\in D_f$ sådana att $x>\omega_K$.}
+\end{center}
+\textit{Alternativt skriver vi: $f(x)\rightarrow\infty$ då $x\rightarrow\infty$.}
+\\
+\scriptsize{$^1$Vi kräver dessutom att $f$ är definierad för godtyckligt stora tal.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.1} (s 170).
+\textit{Antag att f och g är funktioner sådana att}
+\begin{displaymath}
+\lim_{x\rightarrow\infty} f(x)=A \hspace{0.4cm} och \hspace{0.4cm} \lim_{x\rightarrow\infty} g(x)=B
+\end{displaymath}
+\textit{för några reella tal A och B. Då gäller att}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+\lim_{x\rightarrow\infty} (f(x)+g(x)) =A+B,
+\lim_{x\rightarrow\infty}  f(x)g(x) =AB,
+\lim_{x\rightarrow\infty}   \frac{f(x)}{g(x)} = \frac{A}{B} \hspace{0.3cm} \hspace{1.5pt} B \neq 0.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.2} (s 174).
+\textit{Antag att f och g är funktioner sådana att}
+\begin{displaymath}
+\lim_{x \rightarrow \infty} g(x) = \infty \hspace{0.5cm} och \hspace{0.5cm} \lim_{x\rightarrow\infty} f(x) = A.
+\end{displaymath}
+\textit{(Vi tillåter här även A = $\pm \infty$.) Då följer det att} $\lim\limits_{x\rightarrow\infty} f(g(x)) = A.$
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.3} (s 175).
+\textit{Låt $\alpha > 0$ och $a > 1$. Vi har då följande gränsvärden:}
+\begin{displaymath}
+\lim_{x \rightarrow \infty} \frac{a^x}{x^\alpha} = \infty, \hspace{0.5cm} eller \hspace{2pt} ekvivalent, \hspace{0.5cm} \lim_{x \rightarrow \infty}\frac{x^\alpha}{a^x} = 0.
+\end{displaymath}
+\begin{displaymath}
+\lim_{x \rightarrow \infty} \frac{x^\alpha}{\log_ax} = \infty, \hspace{0.5cm} eller \hspace{2pt} ekvivalent, \hspace{0.5cm} \lim_{x \rightarrow \infty}\frac{\log_ax}{x^\alpha} = 0.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.4} (s 178).
+\textit{Antag att funktionerna f och g uppfyller $f(x)\geq g(x)$ för alla $x \in D_f$. Då gäller det att}
+\begin{displaymath}
+\lim_{x\rightarrow\infty} g(x) = \infty \hspace{0.5cm} \Rightarrow \hspace{0.5cm} \lim_{x\rightarrow\infty} f(x) = \infty.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Följdsats 9.1} (s 180).
+\textit{Antag att f är en funktion sådan att $f(x)\rightarrow 0$ då $x\rightarrow \infty$, och att funktionen g är begränsad. Då följer att}
+\begin{displaymath}
+\lim_{x\rightarrow\infty} f(x)g(x) = 0.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.6} (s 181).
+\textit{Varje växande uppåt begränsad funktion f(x) har ett (ändligt) gränsvärde då $x \rightarrow \infty$}
+\vspace{2pt}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 9.3} (Talet e, s 181).
+\begin{displaymath}
+e = \lim_{x\rightarrow\infty}\left( 1+\frac{1}{x}\right)^x.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 9.4} (Gränsvärde då $x\rightarrow a$, s 183).
+\textit{Vi säger att f(x) har gränsvärdet A då $x\rightarrow a$, och skriver}
+\begin{displaymath}
+\lim_{x\rightarrow a} f(x) = A,
+\end{displaymath}
+om$^1$ det för varje $\epsilon > 0$ finns ett tal $\delta_\epsilon > 0$ sådant att
+\begin{center}
+\textit{$|f(x)-A| < \epsilon$ \hspace{0.2cm} för alla $x \in D_f$ sådana att $0 < |x - a| < \delta_\epsilon$.}
+\end{center}
+\textit{Alternativt skriver vi: $f(x)\rightarrow A$ då $x\rightarrow a$.}
+\\
+\scriptsize{$^1$Vi kräver dessutom att $f$ är definierad i någon punkt i varje punkterad omgivning av $a$, dvs. att det för varje $\gamma > 0$ finns ett $x\in D_f$ sådant att $0<|x-a|<\gamma$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 9.5} (Oegentligt gränsvärde då $x\rightarrow a$, s 184).
+\textit{Vi säger att f(x) har det oegentliga gränsvärdet $\infty$ då $x\rightarrow a$, och skriver}
+\begin{displaymath}
+\lim_{x\rightarrow a} f(x) = \infty,
+\end{displaymath}
+\textit{om$^1$ det för varje tal K finns ett tal $\delta_K > 0$ sådant att}
+\begin{center}
+$f(x)>K$ \hspace{0.5cm} för alla $x\in D_f$ sådana att $0<|x-a|<\delta_K$
+\end{center}
+\textit{Alternativt skriver vi: $f(x)\rightarrow \infty$ då $x\rightarrow a$.} \\
+\scriptsize{$^1$Vi kräver dessutom att $f$ är definierad i någon punkt i varje punkterad omgivning av $a$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.7} (s 185).
+\textit{Låt a, A och B vara reella tal. Antag f och g funktioner}
+\begin{displaymath}
+\lim_{x\rightarrow a} g(x) = A \hspace{0.5cm} och \hspace{0.5cm} \lim_{x\rightarrow A} f(x) = B.
+\end{displaymath}
+\textit{och att $g(x)\neq A$ för alla $x\in D_f$ i någon punkterad omgivning av a, ger}
+\begin{center}
+$\lim\limits_{x\rightarrow a} f(g(x)) = B. $
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 9.6} (Ensidigt gränsvärde då $x\rightarrow a$, s 186).
+\textit{Vi säger att f(x) har \textbf{högergränsvärdet} A då $x \rightarrow a$, och skriver}
+\begin{displaymath}
+\lim_{x\rightarrow a^+}f(x)=A,
+\end{displaymath}
+\textit{om$^1$ det för varje tal $\epsilon > 0$ finns ett tal $\delta_\epsilon>0$ sådant att}
+\begin{center}
+$|f(x)-A| < \epsilon$ \hspace{0.5cm} för alla $x\in D_f$ sådana att $a<x<a+\delta_\epsilon$.
+\end{center}
+\textit{Alternativt skriver vi: $f(x) \rightarrow A$ då $x\rightarrow a^+$}.\\
+\scriptsize$^1$Vi kräver dessutom att funktionen är definierad i varje punkterad högeromgivning av $a$, dvs. att det för varje $\gamma>0$ finns ett $x\in D_f$ sådant att $a<x<a+\gamma$.
+\begin{center}
+\normalsize$\lim\limits_{x\rightarrow a} f(x)$ existerar \hspace{0.3cm} $\Leftrightarrow$ \hspace{0.3cm} $\lim\limits_{x\rightarrow a^+}f(x)$ och $\lim\limits_{x\rightarrow a^-} f(x)$ existerar och är lika.
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 9.7} (Kontinuitet, s 189). 
+\textit{Låt funktionen f vara definierad i punkten a. Om}
+\begin{center}
+$\lim\limits_{x\rightarrow a} f(x) = f(a)$
+\end{center}
+\textit{så säger vi att f är \textbf{kontinuerlig} i a.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.8} (Satsen om mellanliggande värden, s 190). 
+\textit{Antag att funktionen f är kontinuerlig på det kompakta intervallet $[a,b]$, och att $f(a)\neq f(b)$. Då antar f varje värde mellan f(a) och f(b) (minst) en gång i detta intervall.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.9} (s 191). 
+\textit{Antag att funktionen f är kontinuerlig på det kompakta intervallet $[a,b]$. Då antar f ett största och minsta värde i detta intervall.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.10} (s 192). 
+\textit{Om f och g är kontinuerliga så är även}
+\begin{center}
+$f+g, \hspace{0.5cm} f \cdot g, \hspace{0.5cm} \cfrac{f}{g}, \hspace{0.5cm}$ och \hspace{0.5cm} $f \circ g$ \hspace{0.5cm} kontinuerliga.
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.11} (s 192). 
+\textit{Antag att funktionen f, deriverad på intervallet \textbf{I}, är injektiv och kontinuerlig. Då följer det att inversen $f^{-1})$ är kontinuerlig.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.12} (s 193). 
+\textit{Polynomfunktioner, rationella funktioner, potensfunktioner, exponential- och logaritmfunktioner, de trigonometriska funktionerna och deras inverser samt de hyperboliska funktionerna är samtliga kontinuerliga.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 9.13} (Standardgränsvärden, s 194). 
+\begin{center}
+\begin{tabular}{ll}
+\vspace{0.05cm}
+$\lim\limits_{x\rightarrow \infty} \cfrac{a^x}{x^{\alpha}} = \infty$ & $(\alpha> 0,a>1)$ \\ 
+\vspace{0.1cm}
+$\lim\limits_{x\rightarrow \infty} \cfrac{x^{\alpha}}{\log_a x} = \infty$ & $(\alpha> 0,a>1)$\\
+\vspace{0.05cm}
+$\lim\limits_{x\rightarrow \pm \infty} \bigg( 1 + \cfrac{1}{x} \bigg) ^x = e,$ & $\lim\limits_{x\rightarrow 0} \cfrac{\sin x}{x} = 1,$\\
+\vspace{0.05cm}
+$\lim\limits_{x\rightarrow 0} \cfrac{\ln{1+x}}{x} = 1,$ & $\lim\limits_{x\rightarrow 0} \cfrac{e^x-1}{x} = 1,$ \\
+$\lim\limits_{x\rightarrow \pm 0} x^{\alpha}\ln{x} = 0$ & $(\alpha>0).$ \\
+\end{tabular}
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+(Användbara omskrivningar, s 200).
+\begin{center}
+$f(x)^{g(x)}=e^{g(x)\ln{f(x)}}.$ \\
+\vspace{0.2cm}
+$\lim\limits_{x\rightarrow a} f(x)=A, \hspace{0.5cm} \lim\limits_{x\rightarrow a} g(x)=B \hspace{1cm} \Rightarrow \hspace{1cm} \lim\limits_{x\rightarrow a} f(x)^{g(x)}=A^B.$
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+(Geometriska serier, s 203).
+\begin{center}
+$\sum_{k=0}^{\infty}x^k$ är konvergent med summan $\cfrac{1}{1-x}$ precis då $-1<x<1.$
+\end{center}
+\\\hline
+\end{tabular}
+\section*{Kapitel 10. Derivator}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 10.1} (Derivata, s 206). 
+\textit{Antag att f är definierad i en omgivning av punkten a. Om gränsvärdet}
+\begin{center}
+$\lim\limits_{h\rightarrow 0} \cfrac{f(a+h)-f(a)}{h}$
+\end{center}
+\textit{existerar (ändligt) så säger vi att f är \textbf{deriverbar} i a. Själva gränsvärdet kallas \textbf{derivatan} av f i punkten a, och betecknas $f'(a)$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 10.2} (Ensidig derivata, s 208). 
+\textit{Antag att f är definierad i en högeromgivning av punkten a. \textbf{Högerderivatan} av f i a definieras som högergränsvärdet}
+\begin{center}
+$f'_+(a) = \lim\limits_{h\rightarrow 0^+}\cfrac{f(a+h)-f(a)}{h},$
+\end{center}
+\textit{under förutsättning att detta existerar (ändligt).}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+(Tangent och normal, s 211). 
+\begin{center}
+$y-f(a) =f'(a)(x-a),$ \\
+$y-f(a) =\cfrac{1}{f'(a)}(x-a).$
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.1} (s 212).
+\textit{Om funktionen f är deriverbar i en punkt a så är f också kontinuerlig i punkten a.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.2} (s 213).
+\textit{Antag att funktionerna f och g är deriverbara i punkten x. Då är även $f+g, f\cdot g$ och $f/g$ deriverbara i $x$, med}
+\begin{center}
+\begin{tabular}{l}
+\vspace{0.2cm}
+$(f+g)'(x) = f'(x) + g'(x)$ \\ \vspace{0.2cm}
+$(f\cdot g)'(x) = f'(x)g(x) + f(x)g'(x)$ \\
+$\bigg( \cfrac{f}{g}\hspace{2pt} \bigg) '(x) = \cfrac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$ \hspace{1cm}(om $g(x)\neq 0).$
+\end{tabular}
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.3} (Kedjeregeln, s 215).
+\textit{Antag att funktionen g är deriverbara i punkten x, och att f är deriverbar i punkten $y=g(x)$. Då är den sammansatta funktionen $(f\circ g)(x)=f(g(x))$ deriverbar i punkten x med}
+\begin{center}
+$(f\circ g)'(x)=f'(g(x))\cdot g'(x).$ 
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.4} (Derivata av invers, s 217).
+\textit{Antag att funktionen f är injektiv med invers $f^{-1}$. Om f är deriverbar i punkten x, med $f'(x)\neq 0$, så är $f^{-1}$ deriverbar i punkten y=f(x) med derivatan}
+\begin{center}
+$(f^{-1})'(y)=\cfrac{1}{f'(x)} \hspace{1cm} \Leftrightarrow \hspace{1cm} f'(x)=\cfrac{1}{(f^{-1})'(y)}$
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.5} (Standardderivator, s 219).
+\begin{center}
+\begin{tabular}{ll}
+$De^x=e^x$,&
+$D\ln{x}=\cfrac{1}{x}$,\\
+$Da^x=a^x\ln{a}$, & $a>0$ konstant,\\
+$D\log_ax=\cfrac{1}{x\ln{a}}$ & $a>0, a\neq 1$ konstant,\\
+$Dx^\alpha=\alpha x^{\alpha - 1},$ & $\alpha$ konstant,\\
+$D\sin{x}=\cos x,$ &
+$D\cos x = -\sin x,$ \\\vspace{0.2cm}
+$D\tan x = \cfrac{1}{\cos ^2x},$&
+$D\cot x = -\cfrac{1}{\sin ^2x},$\\\vspace{0.2cm}
+$D\arcsin x = \cfrac{1}{\sqrt{1-x^2}},$&
+$D\arccos x = -\cfrac{1}{\sqrt{1-x^2}},$\\\vspace{0.2cm}
+$D\arctan x = \cfrac{1}{1+x^2},$&
+$D$ arccot $ x = -\cfrac{1}{1+x^2},$\\ $D\ln{|x|} = \cfrac{1}{x}.$
+\end{tabular}
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 10.3} (s 227).
+\textit{En punkt $a\in D_f$ kallas en \textbf{lokal maximipunkt} till funktionen f, och vi säger att f har ett \textbf{lokalt maximum} i a, om}
+\begin{center}
+$f(a)\geq f(x)$ \hspace{0.5cm} för alla $x\in D_f$ nära a.
+\end{center}
+\textit{På motsvarande sätt definieras en \textbf{lokal minimipunkt} och ett \textbf{lokalt minimum} genom att i stället använda att $f(a)\leq f(x)$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.6} (s 227).
+\textit{Antag att a är en lokal extrempunkt till f, och att a är en inre punkt i definitionsmängden. Då följer det att om f är deriverbar i a så är f'(a)=0.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.7} (Medelvärdessatsen, s 230).
+\textit{Antag att funktionen f är kontinuerlig på det slutna intervallet $[a,b]$ och deriverbar på det öppna intervallet $]a,b[$. Då finns det (minst) en punkt $\xi, a < \xi < b$, sådana att}
+\begin{displaymath}
+f'(\xi) = \frac{f(b)-f(a)}{b-a}.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.8} (s 232).
+\textit{Antag att f är deriverbar på intervallet I. Då gäller:}
+\begin{tabular}{llll}
+\textit{(1)} $f'(x)=0$ & för alla $x\in I$ & $\Rightarrow$ & \textit{f är konstant på I,}\\
+\textit{(2)} $f'(x)\geq0$ & för alla $x\in I$ & $\Rightarrow$ & \textit{f är växande på I,} \\
+\textit{(3)} $f'(x)\leq0$ & för alla $x\in I$ & $\Rightarrow$ & \textit{f är avtagande på I,} \\
+\textit{(4)} $f'(x)>0$ & för alla $x\in I$ & $\Rightarrow$ & \textit{f är strängt växande på I,} \\
+\textit{(5)} $f'(x)<0$ & för alla $x\in I$ & $\Rightarrow$ & \textit{f är strängt avtagande på I.}
+\end{tabular}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Följdsats 10.1} (s 233).
+\textit{Antag att funktionerna f och g är deriverbara på intervallet I, och att $f'(x)=g'(x)$ för alla $x\in I$. Då skiljer f och g sig år endast med en konstant C, dvs.}
+
+\vspace{0.2cm}
+\hspace{3cm}$f(x) = g(x) + C$ \hspace{1cm} för alla $x\in I$.
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{L'Hôpitals regel} (s 236).
+\textit{Antag att funktionerna f och g är deriverbara på det öppna intervallet I utom möjligen punkten $a \in I$, följer}
+\begin{center}
+$\lim\limits_{x\rightarrow a}\cfrac{f(x)}{g(x)}=\lim\limits_{x\rightarrow a}\cfrac{f'(x)}{g'(x)}, \hspace{1cm} g'(x)\neq 0.$
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.9} (Leibniz' formel, s 239).
+\textit{Antag att funktionerna f och g är n gånger deriverbara. Då är även deras produkt $fg$ deriverbar n gånger, med}
+\begin{center}
+$(fg)^{(n)}=
+\tbinom{n}{0}f^{(n)}g^{(0)} + 
+\tbinom{n}{1}f^{(n-1)}g^{(1)} +
+\ldots +
+\tbinom{n}{n-1}f^{(1)}g^{(n-1)} +
+\tbinom{n}{n}f^{(0)}g^{(n)} =$
+\end{center}
+\begin{displaymath}
+=\sum_{k=0}^{n}\tbinom{n}{k}f^{(n-k)}g^{(k)}.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 10.4} (Konvex, konkav, s 240).
+\textit{En funktion f kallas \textbf{strängt konvex} på ett intervall I, för alla $x_1,x_2\in I$, gäller att linjestycket mellan punkterna $(x_1,f(x_1))$ och $(x_2,f(x_2))$ ligger över funktionskurvan $y=f(x)$. Om dessa linjestycken ligger under kurvan så är f \textbf{strängt konkav}.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 10.10} (s 241).
+\textit{Antag att funktionen f är två gånger deriverbar på intervallet I, och att $f''(x)\geq 0$ för alla $x\in I$. Då följer det att f är konvex på I. Om $f''(x)\leq 0$ för alla $x\in I$ så är f konkav.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Asymptoter} (s 247).
+$f(x) = kx + m$,
+\begin{center}
+$k=\lim\limits_{x\rightarrow \infty}\cfrac{f(x)}{x}$ \hspace{0.5cm} och \hspace{0.5cm} $m=\lim\limits_{x\rightarrow \infty}(f(x)-kx).$
+\end{center}
+\\\hline
+\end{tabular}
+\section*{Kapitel 11. Maclaurin- och Taylorutveckling}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 11.1} (Maclaurinpolynom, s 258).
+\textit{Låt f vara en funktion som är (minst) n gånger deriverbar i en omgivning av punkten 0. Polynomet}
+\begin{displaymath}
+p_n(x)=f(0)+f'(0)x+\frac{f''(0)}{2}x^2+\frac{f^{(3)}(0)}{3!}x^3+\ldots+\frac{f^{(n)}(0)}{n!}x^n
+\end{displaymath}
+\textit{kallas \textbf{Macluarinpolynomet} av \textbf{ordning} n till f.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 11.1} (Maclaurins formel, s 259).
+\textit{Antag att funktionen f har kontinuerliga derivator (minst) till och med ordning $n + 1$ i en omgivning av punkten $0$. Då gäller det, för alla x i denna omgivning, att}
+\begin{displaymath}
+f(x)=f(0)+f'(0)x+\frac{f''(0)}{2}x^2+\frac{f^{(3)}(0)}{3!}x^3+\ldots+\frac{f^{(n)}(0)}{n!}x^n+R_{n+1}(x),
+\end{displaymath}
+\textit{där}
+\begin{displaymath}
+R_{n+1}(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}x^{n+1}
+\end{displaymath}
+\textit{för något $\xi$ mellan $0$ och $x$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 11.2} (Entydighet av Maclaurinutveckling, s 264).
+\textit{Antag att funktionen f har kontinuerliga derivator (minst) till och med ordning $n+1$ i en omgivning av punkten $0$. Antag vidare att}
+\begin{displaymath}
+f(x)=c_0+c_1x+c_2x^2+\ldots+c_nx^n+x^{n+1}B(x),
+\end{displaymath}
+\textit{där $B(x)$ är begränsad nära $x=0$. Då är detta en Maclaurinutveckling av f, dvs. $q_n(x)=c_0+c_1x+c_2x^2+\ldots+c_nx^n$ är Maclaurinpolynomet av ordning n.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 11.4} (Taylors formel, s 275).
+\textit{Antag att funktionen f har kontinuerliga derivator (minst) till och med ordning $n+1$ i en omgivning av punkten a. Då gäller det, för alla x i denna omgivning, att}
+\begin{displaymath}
+f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2+\ldots+\frac{f^{(n)}(a)}{n!}(x-a)^n+R_{n+1}(x),
+\end{displaymath}
+\textit{där}
+\begin{displaymath}
+R_{n+1}(x) = \frac{f^{(n+1)}(\beta)}{(n+1)!}x^{n+1}
+\end{displaymath}
+\textit{för något $\beta$ mellan $a$ och $x$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 11.3} (s 266).
+\begin{center}
+\begin{tabular}{l}
+\vspace{0.3cm}
+$e^x=1+x+\cfrac{x^2}{2}+\cfrac{x^3}{3!}+\ldots+\cfrac{x^n}{n!}+x^{n+1}B(x),$ \\\vspace{0.3cm}
+$\ln(1+x)=x-\cfrac{x^2}{2}+\cfrac{x^3}{3}-\cfrac{x^4}{4}+\ldots+(-1)^{n-1}\cfrac{x^n}{n}+x^{n+1}B(x),$ \\\vspace{0.3cm}
+$(1+a)^\alpha=1+\alpha x+\cfrac{\alpha(\alpha-1)}{2}x^2+\cfrac{\alpha(\alpha-1)(\alpha-2)}{3!}x^3+\ldots$\\\vspace{0.3cm}
+\hspace{1.5cm}$\ldots+\cfrac{\alpha(\alpha-1)\cdot\ldots\cdot(\alpha-(n-1))}{n!}x^n+x^{n+1}B(x),$\\\vspace{0.3cm}
+$\sin{x}=x-\cfrac{x^3}{3!}+\cfrac{x^5}{5!}-\cfrac{x^7}{7!}+\ldots+(-1)^{n-1}\cfrac{x^{2n-1}}{(2n-1)!}+x^{2n+1}B(x),$\\\vspace{0.3cm}
+$\cos{x}=1-\cfrac{x^2}{2}+\cfrac{x^4}{4!}-\cfrac{x^6}{6!}+\ldots+(-1)^{n}\cfrac{x^{2n}}{(2n)!}+x^{2n+2}B(x),$\\\vspace{0.3cm}
+$\arctan{x}=x-\cfrac{x^3}{3}+\cfrac{x^5}{5}-\cfrac{x^7}{7}+\ldots+(-1)^{n-1}\cfrac{x^{2n-1}}{2n-1}+x^{2n+1}B(x).$\\
+\end{tabular}
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+(s 272).
+\begin{equation*}
+\begin{array}{rllr}
+\vspace{0.3cm}
+e^x&=& \sum\limits_{k=0}^{\infty}\cfrac{x^k}{k!} = 1+x+\cfrac{x^2}{2}+\cfrac{x^3}{3!}+\ldots, &x \in \mathbb{R}, \\\vspace{0.3cm}
+\ln{(1+x)}&=&\sum\limits_{k=1}^{\infty}(-1)^{k-1}\cfrac{x^k}{k}=x-\cfrac{x^2}{2}+\cfrac{x^3}{3}+\ldots, & -1<x<1\\\vspace{0.3cm}
+(1+x)^\alpha&=&\sum\limits_{k=0}^{\infty}\tbinom{a}{k}x^k, & -1<x<1\\\vspace{0.3cm}
+\sin x&=&\sum\limits_{k=0}^{\infty}(-1)^k 
+\cfrac{x^{2k+1}}{(2k+1)!}, & x\in \mathbb{R}\\\vspace{0.3cm}
+\cos x&=&\sum\limits_{k=0}^{\infty}(-1)^{k}\cfrac{x^{2k}}{(2k)!}, & x\in \mathbb{R}\\\vspace{0.3cm}
+\arctan x&=&\sum\limits_{k=0}^{\infty}(-1)^k 
+\cfrac{x^{2k+1}}{2k+1}, & -1 \leq x \leq 1.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\newpage
+\section*{Kapitel 6. Komplexa tal}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 6.1} (Komplexa talsystemet, s 84).
+\textit{Det \textbf{komplexa talsystemet} består av alla tal på formen}
+\begin{center}
+$a+bi, \hspace{1cm} a,b \in \mathbb{R},$
+\end{center}
+\textit{tillsammans med räkneoperationerna}
+\begin{tabular}{lll}
+\hspace{2cm}$(a+bi)+(c+di)$ & $=$ & $(a+c)+(b+d)i,$\\
+\hspace{2cm}$(a+bi)\cdot(c+di)$ & $=$&$(ac-bd)+(ad+bc)i,$
+\end{tabular}
+
+\vspace{0.2cm}
+\textit{Mängden av komplexa tal betecknas $\mathbb{C}$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 6.2} (Kvot av komplexa tal, s 89).
+\textit{För komplexa tal u och w, där $w\neq 0$, definieras \textbf{kvoten} u/w enligt}
+\begin{center}
+$\cfrac{u}{w}=\cfrac{u\overline{w}}{|w|^2}.$
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|C{5.46cm}|} \hline
+$|z|=\sqrt{a^2+b^2}$
+\\\hline
+\end{tabular}
+\begin{tabular}{|C{5.46cm}|} \hline
+$e^{i\theta} = \cos{\theta} + i \sin{\theta}.$
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 6.1} (de Moivres formel, s 95).
+\textit{För positiva (+negativa) heltal n gäller}
+\begin{center}
+$(e^{i\theta})^n=e^{in\theta},$
+\end{center}
+\textit{eller ekvivalent,}
+\hspace{0.65cm}$(\cos \theta + i \sin \theta)^n=\cos n\theta + i \sin n \theta.$
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 6.2} (Algebrans fundamentalsats, s 102).
+\textit{Varje icke-konstant polynom med komplexa koefficienter har minst ett komplext nollställe.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 6.3} (s 102).
+\textit{Ett polynom p(z) av grad n $\geq 1$ har precis n stycken nollställen (räknat med multiplicitet). Vidare kan p(z) faktoriseras}
+\begin{center}
+$p(z)=a_n(z-\alpha_1)(z-\alpha_2)\cdot\ldots\cdot(z-\alpha_n),$
+\end{center}
+\textit{där $a_n$ är koefficienten framför $z^n$, och $\alpha_1,\alpha_2,\ldots,\alpha_n$ är nollställena.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 6.4} (s 103).
+\textit{Antag att polynomet p(z) har reella koefficienter, och att $\alpha$ är ett nollställe till p(z). Då är även konjugatet $\overline{\alpha}$ ett nollställe till p(z).}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 6.5} (s 104).
+\textit{Varje (icke-konstant) polynom med reella koefficienter kan skrivas som en produkt av reella polynom av grad 1 och 2.}
+\\\hline
+\end{tabular}
+\begin{center}
+\Huge LYCKA TILL! \#SWEG\\
+\vspace{4pt}
+\scriptsize $\ddot\smile$
+\end{center}
+\end{document}

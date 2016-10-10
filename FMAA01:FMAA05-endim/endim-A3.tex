@@ -1,0 +1,565 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}  % Teckenkodning UTF8
+\usepackage[swedish]{babel}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{eqnarray}
+\usepackage{ marvosym }
+\newcommand\abs[1]{\left|#1\right|}
+
+\begin{document}
+\begin{center}
+\LARGE Endimensionell Analys A3 \\
+\large Sammanställt av Victor Winberg\\
+\end{center}
+\renewcommand{\arraystretch}{1.5}
+\section*{Kapitel 12. Primitiva funktioner}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 12.1} (Primitiv funktion, s 279). 
+\textit{En funktion F kallas \textbf{primitiv funktion} till f på intervallet I om $F'(x)=f(x)$ för alla $x\in I$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 12.1} (s 280). 
+\textit{Antag att F är en primitiv funktion till f. Då kan varje primitiv funktion G till f skrivas på formen $G(x) = F(x) + C$, för någon konstant C.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 12.2} (s 281).
+\begin{equation*}
+\renewcommand{\arraystretch}{2.3}
+\begin{array}{>{\displaystyle}rc>{\displaystyle}l}
+\int e^xdx  =  e^x+C, & &
+\int \frac{1}{x}dx  = \ln x +C \hspace{0.5cm}(=\ln |x| +C), \\
+\int \cos{x} dx   =  \sin x + C, & &
+\int \sin x dx   =  -\cos x + C, \\
+\int \frac{1}{\cos^2x} dx =  \tan x + C, & &
+\int \frac{1}{\sin^2x}dx  =  -\cot x + C,\\
+\int \frac{1}{\sqrt{1-x^2}}dx  = \arcsin x +C, & &
+\int -\frac{1}{\sqrt{1-x^2}}dx  =  \arccos x + C,\\
+\int \frac{1}{1+x^2}dx  =  \arctan x + C, & &
+\int \frac{1}{\sqrt{x^2+\alpha}}  =  \ln |x+\sqrt{x^2+\alpha}| + C.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Variabelbyte och Partialintegration} (s 284 och 286).
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+\int f(g(x))\cdot g'(x)dx = F(g(x)) + C,\\
+\int f(x)g(x)dx = F(x)g(x)-\int F(x)g'(x)dx.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Trigonometriska funktioner och rotuttryck} (s 297-301).
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c>{\displaystyle}c}
+\sin ^2x = \frac{1-\cos 2x}{2} &
+\cos ^2x = \frac{1+\cos 2x}{2} \\
+\sin x = \frac{2t}{1+t^2} &
+\cos x = \frac{1-t^2}{1+t^2} \\
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\section*{Kapitel 13. Integraler}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 13.1} (Integral av trappfunktion, s 304). 
+\textit{För trappfunktionen $\Phi$ definierar vi \textbf{integralen} av $\Phi$ över intervallet $[a,b]$ enligt}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}\Phi(x)dx=c_1(x_1-x_0)+\ldots+c_n(x_n-x_{n-1})
+= \sum_{k=1}^{n}c_k(x_k-x_{k-1}).
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.1} (s 305). 
+\textit{Antag att $\Phi$ och $\Psi$ är trappfunktioner definierade på intervallet $[a,b]$. Då gäller de vanliga integralreglerna samt}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}\Phi(x)dx=\int_{a}^{c}\Phi(x)dx+\int_{c}^{b}\Phi(x)dx \hspace{0.5cm} a<c<b.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 13.2} (Integrerbarhet, s 306).
+\textit{Låt funktionen f vara definierad och begränsad på intervallet $[a,b]$. Vi säger att f är \textbf{integrerbar} på $[a,b]$ om det för varje $\varepsilon > 0$ finns trappfunktioner $\Phi$ och $\Psi$, under respektive över f, sådana att}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}\Psi(x)dx-\int_{a}^{b}\Phi(x)dx < \varepsilon.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 13.3} (Integral, s 307).
+\textit{Antag att funktionen f är integrerbar på intervallet $[a,b]$. \textbf{Integralen} av f över $[a,b]$ definieras som (det entydiga) talet $A$ nedan, och betecknas}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}\Phi(x)dx \leq A \leq \int_{a}^{b}\Psi(x)dx \hspace{0.2cm}\Rightarrow \hspace{0.2cm} \int_{a}^{b}f(x)dx.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.2} (s 308).
+\textit{Om funktionen f är kontinuerlig på det kompakta intervallet $[a,b]$ så är f integrerbar på $[a,b]$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 13.4} (Riemannsumma, s 310).
+\textit{Med beteckningarna ovan kallas}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\sum_{k=1}^{n}f(\xi)(x_k-x_{k-1})
+\end{array}
+\end{equation*}
+\textit{en \textbf{Riemannsumma} till f på intervallet $[a,b]$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.3} (s 311).
+\textit{Antag att f är kontinuerlig på intervallet $[a,b]$, och att}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\sum_{k=1}^{n}f(\xi)(x_k-x_{k-1})
+\end{array}
+\end{equation*}
+\textit{är Riemannsummor till f på $[a,b]$ (för olika indelningar). Då gäller det att}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\sum_{k=1}^{n}f(\xi)(x_k-x_{k-1})\to \int_{a}^{b}f(x)dx
+\end{array}
+\end{equation*}
+\textit{när indelningarnas finhet går mot noll.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.4} (s 311).
+\textit{Antag att funktionerna f och g är integrerbara på intervallet $[a,b]$. Återigen gäller integral- och trappfunktions-reglerna, bl.a}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}f(x)dx=\int_{a}^{c}f(x)dx+\int_{c}^{b}f(x)dx.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Triangelolikheten} (s 313).
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\abs{\int_{a}^{b}f(x)dx} \leq \int_{a}^{b}\abs{f(x)}dx \hspace{0.5cm} (a\leq b).
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.5} (Integralkalkylens medelvärdessats, s 314).
+\textit{Antag att funktionen f är kontinuerlig på intervallet $[a,b]$. Då finns det (minst) en punkt $\xi$, $a\leq \xi \leq b$, sådan att}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}f(x)dx=f(\xi)(b-a).
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.6} (Analysens huvudsats, s 315).
+\textit{Antag att funktionen f är kontinuerlig på (det öppna) intervallet I, och att $a\in I$. Funktionen}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+S(x)=\int_{a}^{x}f(t)dt, \hspace{0.5cm} x\in I,
+\end{array}
+\end{equation*}
+\textit{är då deriverbar med derivatan $S'(x)=f(x)$. Med andra ord, S är en primär funktion till f.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.7} (Insättningsformeln, s 317).
+\textit{Antag att f är kontinuerlig på intervallet I, och att F är en primitiv funktion till f. Då är}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}cc}
+\int_{a}^{b}f(x)dx=F(b)-F(a) & \textit{för alla a och b i I.}
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.8} (Variabelbyte, s 319).
+\textit{Antag att g har kontinuerlig derivata på intervallet $[a,b]$, och att f är kontinuerlig på ett intervall som innehåller g(x) för alla $x\in [a,b]$. Då gäller det att}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}f(g(x))\cdot g'(x)dx = \int_{\alpha}^{\beta} f(t)dt, \hspace{0.5cm} \textit{där $\alpha=g(a)$ och $\beta=g(b)$}
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.9} (Partialintegration, s 319).
+\textit{Antag att F är en primitiv funktion till f, och att f och g' är kontinuerliga på intervallet $[a,b]$. Då gäller}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\int_{a}^{b}f(x)g(x)dx=[F(x)g(x)]_{a}^{b}-\int_{a}^{b}F(x)g'(x)dx.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 13.5} (Integral över obegränsat intervall, s 321).
+\textit{Antag att funktionen f är definierad på intervallet $[a,\infty[$, och integrerbar på $[a,X]$ för varje $X>a$. Om gränsvärdet}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\lim\limits_{X\to \infty}\int_{a}^{X}f(x)dx=A
+\end{array}
+\end{equation*}
+\textit{existerar (ändligt) så säger vi att den \textbf{generaliserade integralen}}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}cc}
+\int_{a}^{\infty}f(x)dx & \textit{är \textbf{konvergent} med värdet A.}
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 13.6} (Integral med obegränsad integrand, s 323).
+\textit{Antag att funktionen f är definierad på intervallet $]a,b]$, och integrerbar på $[c,b]$ för varje c, $a<c<b$. Om gränsvärdet}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+\lim\limits_{c\to a^+}\int_{c}^{b}f(x)dx=A
+\end{array}
+\end{equation*}
+\textit{existerar (ändligt) så säger vi att den generaliserade integralen är \textbf{konvergent} med värdet A.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.10} (s 326).
+\textit{Antag att funktionerna f och g är definierade på intervallet $[a,\infty [$, och att $0\leq f(x) \leq g(x)$ då $x\geq a$. Antag vidare att f och g är integrerbara på $[a,X]$ för varje $X>a$. Då gäller:}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.2}
+\begin{array}{l>{\displaystyle}l>{\displaystyle}l>{\displaystyle}l>{\displaystyle}l>{\displaystyle}l}
+(1) & \int_{a}^{\infty}g(x)dx & \textit{konvergent} & \Rightarrow & \int_{a}^{\infty}f(x)dx & \textit{konvergent}, \\
+(2) & \int_{a}^{\infty}f(x)dx & \textit{divergent} & \Rightarrow & \int_{a}^{\infty}g(x)dx & \textit{divergent}, \\
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.11} (s 326).
+\begin{equation*}
+\renewcommand{\arraystretch}{2.2}
+\begin{array}{l>{\displaystyle}clcr}
+(1) & \int_{1}^{\infty}\frac{1}{x^\alpha}dx & \textit{konvergent} & \Leftrightarrow & \alpha>1, \\
+(2) & \int_{0}^{1}\frac{1}{x^\alpha}dx & \textit{konvergent} & \Leftrightarrow & \alpha<1, \\
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.12} (s 328).
+\textit{Antag att funktionerna f och g är definierade och positiva på intervallet $[a,\infty[$. Antag vidare att f och g är integrerbara på $[a,X]$ för varje $X>a$. Om}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+\lim\limits_{x\to \infty}\frac{f(x)}{g(x)}=A\neq 0
+\end{array}
+\end{equation*}
+\textit{(A ändligt) så är de generaliserade integralerna}
+\begin{equation*}
+\begin{array}{>{\displaystyle}cc>{\displaystyle}c}
+\int_{a}^{\infty}f(x)dx & \textit{och} & \int_{a}^{\infty}g(x)dx
+\end{array}
+\end{equation*}
+\textit{antingen båda konvergenta eller båda divergenta.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.13} (s 329).
+\textit{Om integralen $\int_{a}^{\infty}f(x)dx$ är absolutkonvergent så är den också konvergent}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 13.14} (Cauchys integralkriterium, s 332).
+\textit{Antag att funktionen f(x) är positiv och avtagande för $x\geq 1$, samt integrerbar på $[1,X]$ för varje $X>1$. Då är serien och den generaliserade integralen}
+\begin{equation*}
+\begin{array}{>{\displaystyle}cc>{\displaystyle}c}
+\sum_{k=1}^{\infty}f(k) & \textit{respektive} & \sum_{1}^{\infty}f(x)dx
+\end{array}
+\end{equation*}
+\textit{antingen båda konvergenta eller båda divergenta.}
+\\\hline
+\end{tabular}
+\section*{Kapitel 14. Användning av integraler}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Volym} (s 339).
+\textit{Antag att vi för kroppen K, för varje snitt vinkelrätt mot någon tänkt x-axel, kan vi uttrycka tvärsnittsarean A(x) som en funktion av x får vi volymen}
+\begin{equation*}
+\renewcommand{\arraystretch}{2.5}
+\begin{array}{>{\displaystyle}c}
+V = \int_{a}^{b}A(x)dx
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Rotationskropp} (s 340-341).
+\textit{En slags kropp som skrivformeln fungerar för är den \textbf{rotationskropp} som avgränsas då en funktionskurva y=f(x), $a\leq x \leq b$ roterar kring \textbf{x-axeln}. Varje snitt består då av en cirkelskiva med radie y=f(x), då gäller}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+V = \int_{a}^{b}\pi f(x)^2dx
+\end{array}
+\end{equation*}
+\textit{om vi i stället låter y=f(x) rotera kring \textbf{y-axeln} har vi den inre omkretsen $2\pi x$ med höjden y=f(x) och får}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+V = \int_{a}^{b}2\pi x f(x)dx
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Massa} (s 342).
+\textit{En kropp K med volym V och \textbf{konstant} densitet $\rho$ har massan}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+m = \rho \cdot V \hspace{0.5cm} \Leftrightarrow \hspace{0.5cm} m=\int_Kdm=\int_{K} \rho \cdot dV.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Tyngdpunkt} (s 343).
+\textit{Antag att två punktmassor $m_1$ och $m_2$ är placerade i punkterna $x_1$ respektive $x_2$ på en stång. Vi söker den punkt $x_T$ som är i (moment)jämvikt. Denna punkt kallas systemets \textbf{tyngdpunkt} eller \textbf{masscentrum}. Massorna $m_1$ och $m_2$ ger \textbf{vridmoment} (kraft$\cdot$hävarm)}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+m_1 g \cdot (x_1-x_T) \hspace{0.5cm} \textit{resp.} \hspace{0.5cm} m_2g\cdot (x_2-x_T) \hspace{0.5cm} \textit{räknat \textbf{medurs}.}
+\end{array}
+\end{equation*}
+\textit{För jämviktspunkten $x_T$ gäller därför}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+m_1 g \cdot (x_1-x_T)+ m_2g\cdot (x_2-x_T) = 0 \Leftrightarrow x_T(m_1+m_2)=x_1m_1 + x_2m_2.
+\end{array}
+\end{equation*}
+\textit{Om $m=m_1+m_2$ får vi således}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+x_T=\frac{1}{m}(x_1m_1+x_2m_2).
+\end{array}
+\end{equation*}
+\textit{fortsätter på nästa sida\ldots}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textit{Antag en kropp K med \textbf{kontinuerlig massfördelning}, och vi söker tyngdpunktens koordinat $x_T$ i x-led. Ett element med massa $dm$, placerat i punkten x, ger: $dm\hspace{2pt} g\cdot(x-x_T)$. Summering över kroppen K ger nu}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+\int_{K}(x-x_T)g \hspace{2pt} dm=0 \hspace{0.25cm} \Leftrightarrow  \hspace{0.25cm} x_T\int_{K}dm=\int_{K}xdm
+\end{array}
+\end{equation*}
+\textit{Eftersom $m=\int_Kdm$ är kroppens totala massa får vi slutligen}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+x_T=\frac{1}{m}\int_Kxdm.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Kurvlängd} (s 347). 
+\textit{Längden av hela kurvan ges av att summera alla \textbf{bågelementen} $(\Delta s \approx \sqrt{x'(t)^2+y'(t)^2}dt)$}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+L = \int_a^b ds = \int_{a}^{b}\sqrt{x'(t)^2+y'(t)^2}dt.
+\end{array}
+\end{equation*}
+\textit{Om vi ansätter $x(t)=t$ och $y(t)=f(t)$ får vi längden av funktionskurva}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+L = \int_{a}^{b}\sqrt{1+f'(x)^2}dx.
+\end{array}
+\end{equation*}
+\textit{För en kurva på formen $r(\theta)$ har vi parametriseringen}
+\begin{equation*}
+\begin{array}{>{\displaystyle}l>{\displaystyle}l}
+x(\theta)=r(\theta)\cos \theta , & x'(\theta)=r'(\theta)\cos \theta - r(\theta)\sin \theta\\
+y(\theta)=r(\theta)\sin \theta , & y'(\theta)=r'(\theta)\sin \theta
++r(\theta)\cos \theta ,
+\end{array}
+\end{equation*}
+\textit{som för $x'(\theta)^2+y'(\theta)^2=r(\theta)^2+r'(\theta)^2$ har längden}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+L = \int_{a}^{b}\sqrt{r(\theta)^2+r'(\theta)^2}d\theta.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Area av rotationsyta} (s 350).
+\textit{Med bågelementet ds ges ytan av en ''remsa'' till $2\pi f(x)$ och vidare ges $dA\approx 2\pi f(x) ds$, därmed \textbf{rotationsarea}}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+A = \int_{a}^{b}2\pi f(x)ds\cdot dx=\int_{a}^{b}2\pi f(x)\sqrt{1+f'(x)^2}dx.
+\end{array}
+\end{equation*}
+\\\hline
+\end{tabular}
+\section*{Kapitel 15. Differentialekvationer}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Allmän linjär ekvation av första ordningen} (s 357).
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+a(x)y'(x)+b(x)y(x)=h(x),
+\end{array}
+\end{equation*}
+\textit{där a, b och h är (givna) funktioner. Dessa löses genom den \textbf{integrerande faktorn} som ges ur ekvationen}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y'+\frac{b(x)}{a(x)}=\frac{h(x)}{a(x)}, \hspace{0.2cm} a(x)\not\equiv 0 \hspace{0.5cm}\Leftrightarrow \hspace{0.5cm} y'+p(x)y=q(x) \\
+q(x)=0 \Leftrightarrow \textit{homogen lösning}, \hspace{0.5cm} q(x)\neq 0 \Leftrightarrow \textit{inhomogen lösning.}
+\end{array}
+\end{equation*}
+\textit{Vi bestämmer först primitiv funktion P(x) till p(x) och bildar funktionen $e^{P(x)}$, detta är vår integrerande faktor.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Separabla ekvationer} (s 365). \textit{Differentialekvationer som kan skrivas på formen}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+g(y(x))\cdot y'(x)=h(x).
+\end{array}
+\end{equation*}
+\textit{för några funktioner g och h kallas \textbf{separabla}, som löses genom användning av kedjeregeln (baklänges).}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Linjära ekvationer} (s 369). \textit{En \textbf{linjär ekvation av andra ordningen} ser ut på följande sätt}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y''+a(x)y'+b(x)y=h(x).
+\end{array}
+\end{equation*}
+\textit{(I det allmänna fallet finns även en funktion framför y'', men genom ledvis derivering ges formel ovan)}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 15.1} (s 372).
+\textit{Antag att $y_p$ är en lösning till ekvationen}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y''+a(x)y'+b(x)y=h(x).
+\end{array}
+\end{equation*}
+\textit{Då ges samtliga lösningar till ekvationen ovan av}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y=y_h+y_p,
+\end{array}
+\end{equation*}
+\textit{där $y_h$ betecknar} alla \textit{lösningar till motsvarande homogena ekvation $y''+a(x)y'+b(x)y=0$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 15.2} (s 373).
+\textit{Antag den karakteristiska ekvationen $r^2 + ar + b=0$ till}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y''+ay'+by=0,
+\end{array}
+\end{equation*}
+\textit{har rötterna $r_1$ och $r_2$. Då ges den allmänna lösningen till ekvationen av}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y(x)=Ae^{r_1x}+Be^{r_2x} \hspace{0.5cm} \textit{om } r_1 \neq r_2,\\
+y(x)=(Ax+B)e^{r_1x} \hspace{0.5cm} \textit{om } r_1 = r_2,
+\end{array}
+\end{equation*}
+\textbf{Sats 15.3} (s 375) \textit{har rötterna $r_{1,2}=\alpha \pm \beta i$ ($\alpha , \beta \in \mathbb{R}, \beta \neq 0$). Då ges den allmänna lösningen till ekvationen av}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y(x)=e^{\alpha x}(A\cos \beta x + B \sin \beta x),
+\end{array}
+\end{equation*}
+\textit{där $A$ och $B$ är godtyckliga konstanter.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Ekvationer av högre ordning} (s 388). \textit{För linjära ekvationer av högre ordning, dvs. ekvationer på formen}
+\begin{equation*}
+\begin{array}{>{\displaystyle}c}
+y^{(n)}+a_1(x)y^{(n-1)}+\ldots+a_n(x)y=h(x), \hspace{0.5cm} n \geq 3.
+\end{array}
+\end{equation*}
+\textit{gäller motsvarande teori som för ekvationer av ordning två. Med andra ord först bestämma alla lösningar $y_h$ till den homogena ekvationen, därefter en partikulärlösning $y_p$, för att till sista addera dessa.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{center}
+{The end.} \\ \vspace{0.5cm}
+{\Huge \Smiley}
+\end{center}
+\end{document}

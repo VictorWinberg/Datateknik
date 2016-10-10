@@ -1,0 +1,247 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}     % För svenska bokstäver
+\usepackage[utf8]{inputenc}  % Teckenkodning UTF8
+\usepackage[swedish]{babel}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{amsmath}
+
+\begin{document}
+\begin{center}
+\LARGE Endimensionell Analys A1\\
+\large Sammanställt av Victor Winberg\\
+\end{center}
+\renewcommand{\arraystretch}{1.5}
+\section*{Kapitel 2. Algebra}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 2.1} (Polynomdivision, s 27). 
+\textit{Antag att $f(x)$ och $g(x)$ är polynom, och att deg $g(x) \geq 1$. Då finns det polynom $q(x)$ och $r(x)$ sådana att}
+\begin{center}
+\textit{$f(x) = q(x)g(x)+r(x)$, \hspace{0.5cm} och deg $r(x) <$ deg $g(x)$ $($eller $r(x) = 0)$.} \\
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 2.2} (Faktorsatsen, s 28). 
+\textit{Antag att $f(x)$ är polynom, och $\alpha$ ett tal. Då gäller det att $\alpha$ är ett nollställe till $f(x)$ om och endast om $x - \alpha$ är en faktor i $f(x)$, dvs.}
+\begin{center}
+\textit{$f(\alpha) = 0 \hspace{0.25cm}\Leftrightarrow\hspace{0.25cm} f(x) = (x-\alpha)q(x)$ \hspace{0.5cm} för något polynom $q(x)$.} \\
+\end{center}
+\\\hline
+\end{tabular}
+\section*{Kapitel 4. Summor och talföljder}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 4.1} (Aritmetisk summa, s 51). 
+\begin{displaymath}
+\sum_{k=1}^{n} k = 1+2+3+\ldots+(n-1)+n=\frac{n(n+1)}{2}.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 4.2} (Geometrisk summa, s 53). 
+\begin{displaymath}
+\sum_{k=0}^{n} x^k = 1+x+x^2+\ldots+x^{n-1}+x^n=\frac{x^{n+1}-1}{x-1}, \hspace{0.5cm} x \neq 1.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 4.3} (Binomialsatsen, s 57).\textit{För varje heltal $n \geq 0$ gäller} 
+\begin{displaymath}
+(a+b)^n=a^n+\tbinom{n}{1}a^{n-1}b^1+\tbinom{n}{2}a^{n-2}b^2+\ldots+\tbinom{n}{n-1}a^{1}b^{n-1}+b^n.
+\end{displaymath}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 4.4} (Pascals triangel, s 58).
+\begin{displaymath}
+\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}
+\end{displaymath}
+\\\hline
+\end{tabular}
+\section*{Kapitel 7. Funktionsbegreppet}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 7.2} (Injektiv funktion, s 116). 
+\textit{En funktion sägs vara \textbf{injektiv} (eller \textbf{omvändbar}) om det för alla $x_1,x_2 \in D_f$ gäller att} 
+\begin{center}
+$x_1 \neq x_2 \hspace{0.5cm} \Rightarrow \hspace{0.5cm} f(x_1) \neq f(x_2).$
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 7.3} (Invers funktion, s 117). 
+\textit{Låt f vara en injektiv funktion. Den funktion till varje $y \in V_f$ ordnar det tal $x \in D_f$ som uppfyller ekvationen $y=f(x)$ kallas \textbf{inversen} till f, och betecknas $f^{-1}$.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 7.4} (Växande och avtagande funktion, s 120). 
+\textit{En funktion f sägs vara \textbf{växande} om det för alla $x_1, x_2 \in D_f$ gäller att}
+\begin{displaymath}
+x_1 < x_2 \hspace{0.5cm} \Rightarrow \hspace{0.5cm} f(x_1) \leq f(x_2).
+\end{displaymath}
+\textit{Vi säger att f är \textbf{avtagande} om det för alla $x_1,x_2 \in D_f$ gäller att}
+\begin{center}
+$x_1 < x_2 \hspace{0.5cm} \Rightarrow \hspace{0.5cm} f(x_1) \geq f(x_2).$
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 7.1} (s 122). 
+\textit{Varje strängt växande (strängt avtagande) funktion har en invers, vilket själv är strängt växande (strängt avtagande).}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 7.5} (Begränsad funktion s 122). 
+\textit{En funktion f sägs vara \textbf{uppåt begränsad} om det existerar ett tal M sådant att}
+\begin{center}
+$f(x) \leq M$ \hspace{1cm} för alla $x \in D_f$,
+\end{center}
+\textit{samt \textbf{nedåt begränsad} om det existerar ett tal m sådant att}
+\begin{center}
+$f(x) \geq m$ \hspace{1cm} för alla $x \in D_f$.
+\end{center}
+\textit{En funktion som både är uppåt och nedåt begränsad sägs vara \textbf{begränsad}.}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Definition 7.6} (Jämn och udda funktion s 123). 
+\textit{En funktion f sägs vara \textbf{jämn} om det gäller att}
+\begin{center}
+$f(-x) = f(x)$ \hspace{1cm} för alla $x \in D_f$,
+\end{center}
+\textit{Vi säger att f är \textbf{udda} om}
+\begin{center}
+$f(-x) = -f(x)$ \hspace{1cm} för alla $x \in D_f$.
+\end{center}
+\\\hline
+\end{tabular}
+\section*{Kapitel 8. Elementära funktioner}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 8.6} (Additionsformler för cosinus och sinus, s 147).
+\begin{center}
+cos($x+y$) = cos$x$ cos$y$ $-$ sin$x$ sin$y$, \\
+sin($x+y$) = sin$x$ cos$y$ $+$ cos$x$ sin$y$.
+\end{center}
+\textit{Sätter vi $x=y$ med hjälp av \textbf{trigonometriska ettan} $(1)$ får vi}
+\begin{center}
+\begin{tabular}{lr}
+cos($2x$) = cos$^2x$ - sin$^2x$,& \\
+sin($2x$) = 2sin$x$ cos$x$, & \\
+\vspace{0.1cm}
+cos$^2x$ + sin$^2x$ = 1. & (1)
+\end{tabular}
+\end{center}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 8.7} (Hjälpvinkelmetoden, s 156).
+\begin{displaymath}
+a \sin{\omega x}+b \cos{\omega x} = \sqrt{a^2+b^2} \sin{(\omega x + \varphi)}
+\end{displaymath}
+\textit{där vinkeln $\varphi$ uppfyller $\cos{\varphi} = \frac{a}{\sqrt{a^2+b^2}}$ och $\sin{\varphi} = \frac{b}{\sqrt{a^2+b^2}}$ }
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+Hyperboliska funktioner, s 161.
+\begin{displaymath}
+\cosh x = \frac{e^x+e^{-x}}{2},
+\end{displaymath}
+\begin{displaymath}
+\sinh x = \frac{e^x-e^{-x}}{2}.
+\end{displaymath}
+\begin{center}
+$\cosh^2\alpha - \sinh^2\alpha = 1$
+\end{center}
+\\\hline
+\end{tabular}
+\section*{Kapitel P. Axiom i plan geometri}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Axiom 2} (Parallellaxiomet, s 8).
+\textit{Om två parallella linjer skärs av en tredje, så är likbelägna vinklar lika stora. Omvänt gäller att om det finns två lika stora likbelägna vinklar, som uppkommer då en linje skär två andra, så är de två senare linjerna parallella.}
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Axiom 3} (Kongruensfallen, s 9).
+\begin{enumerate}
+\item \textit{Två sidor och mellanliggande vinkel (Kongruensfall SVS)}
+\item \textit{Alla sidor (Kongruensfall SSS)}
+\item \textit{Två vinklar och mellanliggande sida (Kongruensfall VSV)}
+\end{enumerate}
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\section*{Kapitel T. Area-, sinus- och cosinussatsen}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 1} (Areasatsen, s 56).
+\textit{Arean av en triangel är halva produkten av två sidors längder multiplicerat med sinus för mellanliggande vinkel.}
+\begin{displaymath}
+T=\frac{bc}{2} \sin \alpha
+\end{displaymath}
+\textbf{Notera: }\textit{Vinkeln kan vara både spetsig och trubbig.}
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 2} (Sinussatsen, s 57).
+\textit{I en triangel med sidorna a, b, c och moststående vinklar $\alpha, \beta, \gamma$ gäller}
+\begin{displaymath}
+\frac{\sin\alpha}{a} = \frac{\sin\beta}{b} = \frac{\sin\gamma}{c}
+\end{displaymath}
+\textbf{Bevistips: }\textit{Drag och formulera höjden $h$ med sinus.}
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 3} (Cosniussatsen, s 58).
+\textit{Om sidorna i en triangel är $a, b, c$ och den till sidan $a$ motstående vinkeln är $\alpha$, så gäller}
+\begin{displaymath}
+a^2=b^2+c^2-2bc\cos \alpha
+\end{displaymath}
+\textbf{Bevistips: }\textit{Drag höjden $h$ mot sidan $b$, vilket ger  $a\cos C$ och $b - a\cos C$}
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\\\\\\
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 4} (s 63).
+\textit{För en cirkel med radien $r$ gäller:}
+\begin{tabular}{L{3cm}ll}
+&\textit{cirkelns omkrets} & $P = 2\pi r$ \\
+&\textit{cirkelns area} & $A = \pi r^2$ \\
+\vspace{0.2cm}
+&\textit{cirkelsektorns area} & $A = \frac{br}{2}$
+\end{tabular}
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\section*{Kapitel A. Analytisk geometri}
+\begin{tabular}{|L{11.5cm}|} \hline
+\textbf{Sats 1} (+ räta linjen, s 91-96).
+\textit{Avståndet mellan två punkter i planet $(x_1,y_1)$ och $(x_2,y_2)$}
+\begin{eqnarray}
+d = \sqrt{(x_1-x_2)^2+(y_1-y_2)^2} \\
+k = \frac{y_2-y_1}{x_2-x_1} \\
+k_1k_2=-1
+\end{eqnarray}
+\vspace{0.2cm}
+\\\hline
+\end{tabular}
+\\\\\\
+\end{document}

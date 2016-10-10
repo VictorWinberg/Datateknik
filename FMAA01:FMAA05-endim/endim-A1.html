@@ -1,0 +1,1202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="sv" > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="endim-A1.tex"> 
+<meta name="date" content="2016-10-10 17:01:00"> 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="endim.css"> 
+</head><body 
+>
+<div align="center" style="width:500px;margin-left:auto;margin-right:auto;">
+<!--l. 12--><p class="noindent" >
+<!--l. 13--><p class="noindent" ><span 
+class="ecrm-1728">Endimensionell Analys A1</span><br />
+<span 
+class="ecrm-1200">Sammanst</span><span 
+class="ecrm-1200">ällt av Victor Winberg</span><br />
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Kapitel 2. Algebra</h3>
+   <div class="tabular"> <table width="500px" id="TBL-1" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-1-1-1"  
+class="td11"> <!--l. 19--><p class="noindent" ><span 
+class="ecbx-1000">Sats 2.1 </span>(Polynomdivision, s 27). <span 
+class="ecti-1000">Antag att </span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="ecti-1000">och </span><span 
+class="cmmi-10">g</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="ecti-1000">är polynom, och att</span>
+  <span 
+class="ecti-1000">deg </span><span 
+class="cmmi-10">g</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmr-10">1</span><span 
+class="ecti-1000">. Då finns det polynom </span><span 
+class="cmmi-10">q</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="ecti-1000">och </span><span 
+class="cmmi-10">r</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="ecti-1000">sådana att</span>
+  <div class="center" 
+>
+  <!--l. 21--><p class="noindent" >
+  <!--l. 22--><p class="noindent" ><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) = </span><span 
+class="cmmi-10">q</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">)</span><span 
+class="cmmi-10">g</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) + </span><span 
+class="cmmi-10">r</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">)</span><span 
+class="ecti-1000">, </span><span 
+class="ecti-1000">&#x00A0;     och deg </span><span 
+class="cmmi-10">r</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="cmmi-10">&#x003C; </span><span 
+class="ecti-1000">deg </span><span 
+class="cmmi-10">g</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) (</span><span 
+class="ecti-1000">eller </span><span 
+class="cmmi-10">r</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) = 0)</span><span 
+class="ecti-1000">.</span><br />
+  </div>
+  <!--l. 24--><p class="noindent" >                                                                                             </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-1-2-1"  
+class="td11"> <!--l. 25--><p class="noindent" >                                                                </td> </tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-2-1-1"  
+class="td11"> <!--l. 28--><p class="noindent" ><span 
+class="ecbx-1000">Sats 2.2 </span>(Faktorsatsen, s 28). <span 
+class="ecti-1000">Antag att </span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="ecti-1000">är polynom, och </span><span 
+class="cmmi-10">&#x03B1; </span><span 
+class="ecti-1000">ett tal. Då</span>
+  <span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller det att </span><span 
+class="cmmi-10">&#x03B1; </span><span 
+class="ecti-1000">är ett nollst</span><span 
+class="ecti-1000">älle till </span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="ecti-1000">om och endast om </span><span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">&#x03B1; </span><span 
+class="ecti-1000">är en faktor i</span>
+  <span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">)</span><span 
+class="ecti-1000">, dvs.</span>
+  <div class="center" 
+>
+  <!--l. 30--><p class="noindent" >
+  <!--l. 31--><p class="noindent" ><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">&#x03B1;</span><span 
+class="cmr-10">) = 0   </span><span 
+class="cmsy-10">&#x21D4; </span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) = (</span><span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">&#x03B1;</span><span 
+class="cmr-10">)</span><span 
+class="cmmi-10">q</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="ecti-1000">&#x00A0;     f</span><span 
+class="ecti-1000">ör något polynom </span><span 
+class="cmmi-10">q</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">)</span><span 
+class="ecti-1000">.</span><br />
+  </div>
+  <!--l. 33--><p class="noindent" >                                                                                             </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-2-2-1"  
+class="td11"> <!--l. 34--><p class="noindent" >                                                                </td></tr></table></div>
+   <h3 class="likesectionHead"><a 
+ id="x1-2000"></a>Kapitel 4. Summor och talföljder</h3>
+   <div class="tabular"> <table width="500px" id="TBL-3" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-3-1-1"  
+class="td11"> <!--l. 37--><p class="noindent" ><span 
+class="ecbx-1000">Sats 4.1 </span>(Aritmetisk summa, s 51).
+  <center class="math-display" >
+  <img 
+src="endim-A10x.png" alt="&#x2211;n
+   k = 1+ 2+ 3 + ...+ (n- 1)+ n = n(n-+-1).
+k=1                                 2
+  " class="math-display" ></center>
+  <!--l. 40--><p class="nopar" >                                                                                     </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-3-2-1"  
+class="td11"> <!--l. 42--><p class="noindent" >                                                                </td> </tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-4" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-4-1g"><col 
+id="TBL-4-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-4-1-1"  
+class="td11"> <!--l. 45--><p class="noindent" ><span 
+class="ecbx-1000">Sats 4.2 </span>(Geometrisk summa, s 53).
+  <center class="math-display" >
+  <img 
+src="endim-A11x.png" alt="&#x2211;n   k          2        n-1   n   xn+1 --1
+   x  = 1+ x + x + ...+ x   + x  =  x - 1 ,   x &#x2044;= 1.
+k=0
+  " class="math-display" ></center>
+  <!--l. 48--><p class="nopar" >                                                                                     </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-4-2-1"  
+class="td11"> <!--l. 50--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-5" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-5-1g"><col 
+id="TBL-5-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-5-1-1"  
+class="td11"> <!--l. 53--><p class="noindent" ><span 
+class="ecbx-1000">Sats 4.3 </span>(Binomialsatsen, s 57).<span 
+class="ecti-1000">F</span><span 
+class="ecti-1000">ör varje heltal </span><span 
+class="cmmi-10">n </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmr-10">0 </span><span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller</span>
+  <center class="math-display" >
+  <img 
+src="endim-A12x.png" alt="      n    n  (n) n-1 1  (n)n- 22       (n  ) 1n-1   n
+(a + b)  = a +  1 a   b +  2a   b  +...+  n-1 ab    + b.
+  " class="math-display" ></center>
+  <!--l. 56--><p class="nopar" >                                                                                     </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-5-2-1"  
+class="td11"> <!--l. 58--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-6" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-6-1g"><col 
+id="TBL-6-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-6-1-1"  
+class="td11"> <!--l. 61--><p class="noindent" ><span 
+class="ecbx-1000">Sats 4.4 </span>(Pascals triangel, s 58).
+  <center class="math-display" >
+  <img 
+src="endim-A13x.png" alt="(  )   (    )   (     )
+ n   =  n - 1 +   n- 1
+  k       k       k- 1
+ " class="math-display" ></center>
+ <!--l. 64--><p class="nopar" >                                                </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-6-2-1"  
+class="td11"> <!--l. 66--><p class="noindent" >                                                                </td></tr></table></div>
+   <h3 class="likesectionHead"><a 
+ id="x1-3000"></a>Kapitel 7. Funktionsbegreppet</h3>
+   <div class="tabular"> <table width="500px" id="TBL-7" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-7-1g"><col 
+id="TBL-7-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-7-1-1"  
+class="td11"> <!--l. 69--><p class="noindent" ><span 
+class="ecbx-1000">Definition 7.2 </span>(Injektiv funktion, s 116). <span 
+class="ecti-1000">En funktion s</span><span 
+class="ecti-1000">ägs vara </span><span 
+class="ecbi-1000">injektiv </span><span 
+class="ecti-1000">(eller</span>
+  <span 
+class="ecbi-1000">omv</span><span 
+class="ecbi-1000">ändbar</span><span 
+class="ecti-1000">) om det f</span><span 
+class="ecti-1000">ör alla </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub> <span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub> <span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller att</span>
+  <div class="center" 
+>
+  <!--l. 71--><p class="noindent" >
+  <!--l. 72--><p class="noindent" ><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">&#x2260;</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">&#x00A0;    </span><span 
+class="cmsy-10">&#x21D2;</span> <span 
+class="cmmi-10">&#x00A0;    f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmr-10">)</span><span 
+class="cmmi-10">&#x2260;</span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmr-10">)</span><span 
+class="cmmi-10">.</span></div>
+  <!--l. 74--><p class="noindent" >                                                                                     </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-7-2-1"  
+class="td11"> <!--l. 75--><p class="noindent" >                                                                </td> </tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-8" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-8-1g"><col 
+id="TBL-8-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-8-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-8-1-1"  
+class="td11">
+ <!--l. 78--><p class="noindent" >
+ <span 
+class="ecbx-1000">Definition</span>
+  <span 
+class="ecbx-1000">7.3</span>
+  (Invers
+  funktion,
+  s
+  117).
+  <span 
+class="ecti-1000">Låt</span>
+  <span 
+class="ecti-1000">f</span>
+  <span 
+class="ecti-1000">vara</span>
+  <span 
+class="ecti-1000">en</span>
+  <span 
+class="ecti-1000">injektiv</span>
+  <span 
+class="ecti-1000">funktion.</span>
+  <span 
+class="ecti-1000">Den</span>
+  <span 
+class="ecti-1000">funktion</span>
+  <span 
+class="ecti-1000">till</span>
+  <span 
+class="ecti-1000">varje</span>
+  <span 
+class="cmmi-10">y </span><span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">V</span> <sub><span 
+class="cmmi-7">f</span></sub>
+  <span 
+class="ecti-1000">ordnar</span>
+  <span 
+class="ecti-1000">det</span>
+  <span 
+class="ecti-1000">tal</span>
+  <span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub>
+  <span 
+class="ecti-1000">som</span>
+  <span 
+class="ecti-1000">uppfyller</span>
+  <span 
+class="ecti-1000">ekvationen</span>
+  <span 
+class="cmmi-10">y </span><span 
+class="cmr-10">= </span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">)</span>
+  <span 
+class="ecti-1000">kallas</span>
+  <span 
+class="ecbi-1000">inversen</span>
+ <span 
+class="ecti-1000">till</span>
+  <span 
+class="ecti-1000">f,</span>
+  <span 
+class="ecti-1000">och</span>
+  <span 
+class="ecti-1000">betecknas</span>
+  <span 
+class="cmmi-10">f</span><sup><span 
+class="cmsy-7">-</span><span 
+class="cmr-7">1</span></sup><span 
+class="ecti-1000">.</span>                                                                                        </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-8-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-8-2-1"  
+class="td11"> <!--l. 81--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-9" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-9-1g"><col 
+id="TBL-9-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-9-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-9-1-1"  
+class="td11"> <!--l. 84--><p class="noindent" ><span 
+class="ecbx-1000">Definition 7.4 </span>(Växande och avtagande funktion, s 120). <span 
+class="ecti-1000">En funktion f s</span><span 
+class="ecti-1000">ägs</span>
+  <span 
+class="ecti-1000">vara </span><span 
+class="ecbi-1000">v</span><span 
+class="ecbi-1000">äxande </span><span 
+class="ecti-1000">om det f</span><span 
+class="ecti-1000">ör alla </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub> <span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub> <span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller att</span>
+  <center class="math-display" >
+  <img 
+src="endim-A14x.png" alt="x1 &#x003C; x2   &#x21D2;    f(x1) &#x2264; f(x2).
+  " class="math-display" ></center>
+  <!--l. 88--><p class="nopar" >
+  <span 
+class="ecti-1000">Vi s</span><span 
+class="ecti-1000">äger att f </span><span 
+class="ecti-1000">är </span><span 
+class="ecbi-1000">avtagande </span><span 
+class="ecti-1000">om det f</span><span 
+class="ecti-1000">ör alla </span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,x</span><sub><span 
+class="cmr-7">2</span></sub> <span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub> <span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller att</span>
+  <div class="center" 
+>
+  <!--l. 90--><p class="noindent" >
+  <!--l. 91--><p class="noindent" ><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub> <span 
+class="cmmi-10">&#x003C; x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">&#x00A0;    </span><span 
+class="cmsy-10">&#x21D2;</span> <span 
+class="cmmi-10">&#x00A0;    f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmr-10">) </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmr-10">)</span><span 
+class="cmmi-10">.</span></div>
+  <!--l. 93--><p class="noindent" >                                                                                     </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-9-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-9-2-1"  
+class="td11"> <!--l. 94--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-10" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-10-1g"><col 
+id="TBL-10-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-10-1-1"  
+class="td11">
+ <!--l. 97--><p class="noindent" >
+ <span 
+class="ecbx-1000">Sats</span>
+  <span 
+class="ecbx-1000">7.1</span>
+  (s
+  122).
+  <span 
+class="ecti-1000">Varje</span>
+  <span 
+class="ecti-1000">str</span><span 
+class="ecti-1000">ängt</span>
+  <span 
+class="ecti-1000">v</span><span 
+class="ecti-1000">äxande</span>
+  <span 
+class="ecti-1000">(str</span><span 
+class="ecti-1000">ängt</span>
+  <span 
+class="ecti-1000">avtagande)</span>
+  <span 
+class="ecti-1000">funktion</span>
+  <span 
+class="ecti-1000">har</span>
+  <span 
+class="ecti-1000">en</span>
+  <span 
+class="ecti-1000">invers,</span>
+  <span 
+class="ecti-1000">vilket</span>
+  <span 
+class="ecti-1000">sj</span><span 
+class="ecti-1000">älv</span>
+  <span 
+class="ecti-1000">är</span>
+  <span 
+class="ecti-1000">str</span><span 
+class="ecti-1000">ängt</span>
+  <span 
+class="ecti-1000">v</span><span 
+class="ecti-1000">äxande</span>
+  <span 
+class="ecti-1000">(str</span><span 
+class="ecti-1000">ängt</span>
+  <span 
+class="ecti-1000">avtagande).</span>                                                                               </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-10-2-1"  
+class="td11"> <!--l. 100--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-11" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-11-1g"><col 
+id="TBL-11-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-11-1-1"  
+class="td11"> <!--l. 103--><p class="noindent" ><span 
+class="ecbx-1000">Definition 7.5 </span>(Begränsad funktion s 122). <span 
+class="ecti-1000">En funktion f s</span><span 
+class="ecti-1000">ägs vara </span><span 
+class="ecbi-1000">uppåt</span>
+ <span 
+class="ecbi-1000">begr</span><span 
+class="ecbi-1000">änsad </span><span 
+class="ecti-1000">om det existerar ett tal M sådant att</span>
+  <div class="center" 
+>
+  <!--l. 105--><p class="noindent" >
+  <!--l. 106--><p class="noindent" ><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="cmsy-10">&#x2264; </span><span 
+class="cmmi-10">M </span>&#x00A0;&#x00A0;          för alla <span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub>,</div>
+  <!--l. 108--><p class="noindent" ><span 
+class="ecti-1000">samt </span><span 
+class="ecbi-1000">nedåt begr</span><span 
+class="ecbi-1000">änsad </span><span 
+class="ecti-1000">om det existerar ett tal m sådant att</span>
+  <div class="center" 
+>
+  <!--l. 109--><p class="noindent" >
+  <!--l. 110--><p class="noindent" ><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmmi-10">m </span>&#x00A0;&#x00A0;          för alla <span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub>.</div>
+  <!--l. 112--><p class="noindent" ><span 
+class="ecti-1000">En funktion som både </span><span 
+class="ecti-1000">är uppåt och nedåt begr</span><span 
+class="ecti-1000">änsad s</span><span 
+class="ecti-1000">ägs vara </span><span 
+class="ecbi-1000">begr</span><span 
+class="ecbi-1000">änsad</span><span 
+class="ecti-1000">.</span>   </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-11-2-1"  
+class="td11"> <!--l. 114--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-12" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-12-1g"><col 
+id="TBL-12-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-12-1-1"  
+class="td11"> <!--l. 117--><p class="noindent" ><span 
+class="ecbx-1000">Definition 7.6 </span>(Jämn och udda funktion s 123). <span 
+class="ecti-1000">En funktion f s</span><span 
+class="ecti-1000">ägs vara </span><span 
+class="ecbi-1000">j</span><span 
+class="ecbi-1000">ämn</span>
+ <span 
+class="ecti-1000">om det g</span><span 
+class="ecti-1000">äller att</span>
+  <div class="center" 
+>
+  <!--l. 119--><p class="noindent" >
+  <!--l. 120--><p class="noindent" ><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmsy-10">-</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) = </span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span>&#x00A0;&#x00A0;          för alla <span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub>,</div>
+  <!--l. 122--><p class="noindent" ><span 
+class="ecti-1000">Vi s</span><span 
+class="ecti-1000">äger att f </span><span 
+class="ecti-1000">är </span><span 
+class="ecbi-1000">udda </span><span 
+class="ecti-1000">om</span>
+  <div class="center" 
+>
+  <!--l. 123--><p class="noindent" >
+  <!--l. 124--><p class="noindent" ><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmsy-10">-</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) = </span><span 
+class="cmsy-10">-</span><span 
+class="cmmi-10">f</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span>&#x00A0;&#x00A0;          för alla <span 
+class="cmmi-10">x </span><span 
+class="cmsy-10">&#x2208; </span><span 
+class="cmmi-10">D</span><sub><span 
+class="cmmi-7">f</span></sub>.</div>
+  <!--l. 126--><p class="noindent" >                                                                                                    </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-12-2-1"  
+class="td11"> <!--l. 127--><p class="noindent" >                                                                </td></tr></table></div>
+   <h3 class="likesectionHead"><a 
+ id="x1-4000"></a>Kapitel 8. Elementära funktioner</h3>
+
+   <div class="tabular"> <table width="500px" id="TBL-13" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-13-1g"><col 
+id="TBL-13-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-13-1-1"  
+class="td11"> <!--l. 130--><p class="noindent" ><span 
+class="ecbx-1000">Sats 8.6 </span>(Additionsformler för cosinus och sinus, s 147).
+  <div class="center" 
+>
+  <!--l. 131--><p class="noindent" >
+  <!--l. 132--><p class="noindent" >cos(<span 
+class="cmmi-10">x </span><span 
+class="cmr-10">+ </span><span 
+class="cmmi-10">y</span>) = cos<span 
+class="cmmi-10">x </span>cos<span 
+class="cmmi-10">y </span><span 
+class="cmsy-10">- </span>sin<span 
+class="cmmi-10">x </span>sin<span 
+class="cmmi-10">y</span>,<br />
+  sin(<span 
+class="cmmi-10">x </span><span 
+class="cmr-10">+ </span><span 
+class="cmmi-10">y</span>) = sin<span 
+class="cmmi-10">x </span>cos<span 
+class="cmmi-10">y </span><span 
+class="cmr-10">+ </span>cos<span 
+class="cmmi-10">x </span>sin<span 
+class="cmmi-10">y</span>.</div>
+  <!--l. 135--><p class="noindent" ><span 
+class="ecti-1000">S</span><span 
+class="ecti-1000">ätter vi </span><span 
+class="cmmi-10">x </span><span 
+class="cmr-10">= </span><span 
+class="cmmi-10">y </span><span 
+class="ecti-1000">med hj</span><span 
+class="ecti-1000">älp av </span><span 
+class="ecbi-1000">trigonometriska ettan </span><span 
+class="cmr-10">(1) </span><span 
+class="ecti-1000">får vi</span>
+  <div class="center" 
+>
+  <!--l. 136--><p class="noindent" >
+  <div class="tabular"> <table width="500px" id="TBL-14" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-14-1g"><col 
+id="TBL-14-1"><col 
+id="TBL-14-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-14-1-"><td  style="white-space:normal; text-align:left;" id="TBL-14-1-1"  
+class="td11">cos(<span 
+class="cmr-10">2</span><span 
+class="cmmi-10">x</span>) = cos<sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">x </span>- sin<sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">x</span>,</td><td  style="white-space:normal; text-align:right;" id="TBL-14-1-2"  
+class="td11">  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-2-"><td  style="white-space:normal; text-align:left;" id="TBL-14-2-1"  
+class="td11">sin(<span 
+class="cmr-10">2</span><span 
+class="cmmi-10">x</span>) = 2sin<span 
+class="cmmi-10">x </span>cos<span 
+class="cmmi-10">x</span>,     </td><td  style="white-space:normal; text-align:right;" id="TBL-14-2-2"  
+class="td11">  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-3-"><td  style="white-space:normal; text-align:left;" id="TBL-14-3-1"  
+class="td11">cos<sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">x </span>+ sin<sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">x </span>= 1.        </td><td  style="white-space:normal; text-align:right;" id="TBL-14-3-2"  
+class="td11">(1)</td></tr></table> </div></div>
+  <!--l. 144--><p class="noindent" >                                                                                                    </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-13-2-1"  
+class="td11"> <!--l. 145--><p class="noindent" >                                                                </td> </tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-15" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-15-1-1"  
+class="td11"> <!--l. 148--><p class="noindent" ><span 
+class="ecbx-1000">Sats 8.7 </span>(Hjälpvinkelmetoden, s 156).
+  <center class="math-display" >
+  <img 
+src="endim-A15x.png" alt="asin &#x03C9;x + bcos &#x03C9;x = &#x2218;a2-+-b2 sin(&#x03C9;x + &#x03C6;)
+  " class="math-display" ></center>
+  <!--l. 151--><p class="nopar" >
+  <span 
+class="ecti-1000">d</span><span 
+class="ecti-1000">är vinkeln </span><span 
+class="cmmi-10">&#x03C6; </span><span 
+class="ecti-1000">uppfyller</span> <span 
+class="cmr-10">cos</span><span 
+class="cmmi-10">&#x03C6; </span><span 
+class="cmr-10">=</span> <img 
+src="endim-A16x.png" alt="&#x221A;-a2-2-
+ a+b"  class="frac" align="middle">  <span 
+class="ecti-1000">och</span> <span 
+class="cmr-10">sin</span><span 
+class="cmmi-10">&#x03C6; </span><span 
+class="cmr-10">=</span> <img 
+src="endim-A17x.png" alt="&#x221A;-b2--2
+ a +b"  class="frac" align="middle">                                 </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-15-2-1"  
+class="td11"> <!--l. 155--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-16" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-16-1g"><col 
+id="TBL-16-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-16-1-1"  
+class="td11"> <!--l. 158--><p class="noindent" >Hyperboliska funktioner, s 161.
+  <center class="math-display" >
+  <img 
+src="endim-A18x.png" alt="cosh x = ex +-e-x,
+           2
+  " class="math-display" ></center>
+  <!--l. 161--><p class="nopar" >
+  <center class="math-display" >
+  <img 
+src="endim-A19x.png" alt="        ex - e-x
+sinh x = ---2---.
+  " class="math-display" ></center>
+  <!--l. 164--><p class="nopar" >
+  <div class="center" 
+>
+  <!--l. 165--><p class="noindent" >
+  <!--l. 166--><p class="noindent" ><span 
+class="cmr-10">cosh</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">&#x03B1; </span><span 
+class="cmsy-10">-</span> <span 
+class="cmr-10">sinh</span><sup><span 
+class="cmr-7">2</span></sup><span 
+class="cmmi-10">&#x03B1; </span><span 
+class="cmr-10">= 1</span></div>
+  <!--l. 168--><p class="noindent" >                                                                                                    </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-16-2-1"  
+class="td11"> <!--l. 169--><p class="noindent" >                                                                </td></tr></table></div>
+   <h3 class="likesectionHead"><a 
+ id="x1-5000"></a>Kapitel P. Axiom i plan geometri</h3>
+
+   <div class="tabular"> <table width="500px" id="TBL-17" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-17-1g"><col 
+id="TBL-17-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-17-1-1"  
+class="td11"> <!--l. 172--><p class="noindent" >
+ <span 
+class="ecbx-1000">Axiom</span>
+  <span 
+class="ecbx-1000">2</span>
+  (Parallellaxiomet,
+  s
+  8).
+  <span 
+class="ecti-1000">Om</span>
+  <span 
+class="ecti-1000">två</span>
+  <span 
+class="ecti-1000">parallella</span>
+  <span 
+class="ecti-1000">linjer</span>
+  <span 
+class="ecti-1000">sk</span><span 
+class="ecti-1000">ärs</span>
+  <span 
+class="ecti-1000">av</span>
+  <span 
+class="ecti-1000">en</span>
+  <span 
+class="ecti-1000">tredje,</span>
+  <span 
+class="ecti-1000">så</span>
+  <span 
+class="ecti-1000">är</span>
+  <span 
+class="ecti-1000">likbel</span><span 
+class="ecti-1000">ägna</span>
+  <span 
+class="ecti-1000">vinklar</span>
+  <span 
+class="ecti-1000">lika</span>
+  <span 
+class="ecti-1000">stora.</span>
+  <span 
+class="ecti-1000">Omv</span><span 
+class="ecti-1000">änt</span>
+  <span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller</span>
+  <span 
+class="ecti-1000">att</span>
+  <span 
+class="ecti-1000">om</span>
+  <span 
+class="ecti-1000">det</span>
+  <span 
+class="ecti-1000">finns</span>
+  <span 
+class="ecti-1000">två</span>
+  <span 
+class="ecti-1000">lika</span>
+  <span 
+class="ecti-1000">stora</span>
+  <span 
+class="ecti-1000">likbel</span><span 
+class="ecti-1000">ägna</span>
+  <span 
+class="ecti-1000">vinklar,</span>
+  <span 
+class="ecti-1000">som</span>
+  <span 
+class="ecti-1000">uppkommer</span>
+  <span 
+class="ecti-1000">då</span>
+  <span 
+class="ecti-1000">en</span>
+  <span 
+class="ecti-1000">linje</span>
+  <span 
+class="ecti-1000">sk</span><span 
+class="ecti-1000">är</span>
+  <span 
+class="ecti-1000">två</span>
+  <span 
+class="ecti-1000">andra,</span>
+  <span 
+class="ecti-1000">så</span>
+  <span 
+class="ecti-1000">är</span>
+  <span 
+class="ecti-1000">de</span>
+  <span 
+class="ecti-1000">två</span>
+  <span 
+class="ecti-1000">senare</span>
+  <span 
+class="ecti-1000">linjerna</span>
+  <span 
+class="ecti-1000">parallella.</span>                                                                                 </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-17-2-1"  
+class="td11"> <!--l. 176--><p class="noindent" >                                                                </td> </tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-18" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-18-1g"><col 
+id="TBL-18-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-18-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-18-1-1"  
+class="td11"> <!--l. 179--><p class="noindent" ><span 
+class="ecbx-1000">Axiom 3 </span>(Kongruensfallen, s 9).
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x1-5002x1">
+         <span 
+class="ecti-1000">Två</span>
+         <span 
+class="ecti-1000">sidor</span>
+         <span 
+class="ecti-1000">och</span>
+         <span 
+class="ecti-1000">mellanliggande</span>
+         <span 
+class="ecti-1000">vinkel</span>
+         <span 
+class="ecti-1000">(Kongruensfall</span>
+         <span 
+class="ecti-1000">SVS)</span>
+         </li>
+         <li 
+  class="enumerate" id="x1-5004x2">
+         <span 
+class="ecti-1000">Alla</span>
+         <span 
+class="ecti-1000">sidor</span>
+         <span 
+class="ecti-1000">(Kongruensfall</span>
+         <span 
+class="ecti-1000">SSS)</span>
+         </li>
+         <li 
+  class="enumerate" id="x1-5006x3">
+         <span 
+class="ecti-1000">Två</span>
+         <span 
+class="ecti-1000">vinklar</span>
+         <span 
+class="ecti-1000">och</span>
+         <span 
+class="ecti-1000">mellanliggande</span>
+         <span 
+class="ecti-1000">sida</span>
+         <span 
+class="ecti-1000">(Kongruensfall</span>
+         <span 
+class="ecti-1000">VSV)</span></li></ol>
+  <!--l. 186--><p class="noindent" >                                                                                             </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-18-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-18-2-1"  
+class="td11"> <!--l. 187--><p class="noindent" >                                                                </td></tr></table></div>
+   <h3 class="likesectionHead"><a 
+ id="x1-6000"></a>Kapitel T. Area-, sinus- och cosinussatsen</h3>
+   <div class="tabular"> <table width="500px" id="TBL-19" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-19-1g"><col 
+id="TBL-19-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-19-1-1"  
+class="td11"> <!--l. 190--><p class="noindent" ><span 
+class="ecbx-1000">Sats 1 </span>(Areasatsen, s 56). <span 
+class="ecti-1000">Arean av en triangel </span><span 
+class="ecti-1000">är halva produkten av två sidors</span>
+  <span 
+class="ecti-1000">l</span><span 
+class="ecti-1000">ängder multiplicerat med sinus f</span><span 
+class="ecti-1000">ör mellanliggande vinkel.</span>
+  <center class="math-display" >
+  <img 
+src="endim-A110x.png" alt="T =  bc-sin&#x03B1;
+     2
+  " class="math-display" ></center>
+  <!--l. 194--><p class="nopar" >
+  <span 
+class="ecbx-1000">Notera: </span><span 
+class="ecti-1000">Vinkeln kan vara både spetsig och trubbig.</span>                              </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-19-2-1"  
+class="td11"> <!--l. 198--><p class="noindent" >                                                                </td> </tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-20" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-20-1g"><col 
+id="TBL-20-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-20-1-1"  
+class="td11"> <!--l. 201--><p class="noindent" ><span 
+class="ecbx-1000">Sats 2 </span>(Sinussatsen, s 57). <span 
+class="ecti-1000">I en triangel med sidorna a, b, c och moststående</span>
+  <span 
+class="ecti-1000">vinklar </span><span 
+class="cmmi-10">&#x03B1;,&#x03B2;,&#x03B3; </span><span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller</span>
+  <center class="math-display" >
+  <img 
+src="endim-A111x.png" alt="sin-&#x03B1; = sin-&#x03B2;=  sin&#x03B3;-
+ a      b      c
+  " class="math-display" ></center>
+  <!--l. 205--><p class="nopar" >
+  <span 
+class="ecbx-1000">Bevistips: </span><span 
+class="ecti-1000">Drag och formulera h</span><span 
+class="ecti-1000">öjden </span><span 
+class="cmmi-10">h </span><span 
+class="ecti-1000">med sinus.</span>                             </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-20-2-1"  
+class="td11"> <!--l. 209--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-21" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-21-1g"><col 
+id="TBL-21-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-21-1-1"  
+class="td11"> <!--l. 212--><p class="noindent" ><span 
+class="ecbx-1000">Sats 3 </span>(Cosniussatsen, s 58). <span 
+class="ecti-1000">Om sidorna i en triangel </span><span 
+class="ecti-1000">är </span><span 
+class="cmmi-10">a,b,c </span><span 
+class="ecti-1000">och den till</span>
+  <span 
+class="ecti-1000">sidan </span><span 
+class="cmmi-10">a </span><span 
+class="ecti-1000">motstående vinkeln </span><span 
+class="ecti-1000">är </span><span 
+class="cmmi-10">&#x03B1;</span><span 
+class="ecti-1000">, så g</span><span 
+class="ecti-1000">äller</span>
+  <center class="math-display" >
+  <img 
+src="endim-A112x.png" alt="a2 = b2 +c2 - 2bccos&#x03B1;
+  " class="math-display" ></center>
+  <!--l. 216--><p class="nopar" >
+  <span 
+class="ecbx-1000">Bevistips: </span><span 
+class="ecti-1000">Drag h</span><span 
+class="ecti-1000">öjden </span><span 
+class="cmmi-10">h </span><span 
+class="ecti-1000">mot sidan </span><span 
+class="cmmi-10">b</span><span 
+class="ecti-1000">, vilket ger </span><span 
+class="cmmi-10">a</span><span 
+class="cmr-10">cos</span><span 
+class="cmmi-10">C </span><span 
+class="ecti-1000">och </span><span 
+class="cmmi-10">b </span><span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">a</span><span 
+class="cmr-10">cos</span><span 
+class="cmmi-10">C</span>    </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-21-2-1"  
+class="td11"> <!--l. 220--><p class="noindent" >                                                                </td></tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-22" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-22-1g"><col 
+id="TBL-22-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-22-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-22-1-1"  
+class="td11"> <!--l. 223--><p class="noindent" ><span 
+class="ecbx-1000">Sats 4 </span>(s 63). <span 
+class="ecti-1000">F</span><span 
+class="ecti-1000">ör en cirkel med radien </span><span 
+class="cmmi-10">r </span><span 
+class="ecti-1000">g</span><span 
+class="ecti-1000">äller:</span>
+  <!--tex4ht:inline--><div class="tabular"> <table width="500px" id="TBL-23" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-23-1g"><col 
+id="TBL-23-1"><col 
+id="TBL-23-2"><col 
+id="TBL-23-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-23-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-23-1-1"  
+class="td11"><!--l. 226--><p class="noindent" >                </td><td  style="white-space:normal; text-align:left;" id="TBL-23-1-2"  
+class="td11"><span 
+class="ecti-1000">cirkelns omkrets   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-23-1-3"  
+class="td11"><span 
+class="cmmi-10">P </span><span 
+class="cmr-10">= 2</span><span 
+class="cmmi-10">&#x03C0;r</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-23-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-23-2-1"  
+class="td11"><!--l. 227--><p class="noindent" >                 </td><td  style="white-space:normal; text-align:left;" id="TBL-23-2-2"  
+class="td11"><span 
+class="ecti-1000">cirkelns area       </span></td><td  style="white-space:normal; text-align:left;" id="TBL-23-2-3"  
+class="td11"><span 
+class="cmmi-10">A </span><span 
+class="cmr-10">= </span><span 
+class="cmmi-10">&#x03C0;r</span><sup><span 
+class="cmr-7">2</span></sup></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-23-3-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-23-3-1"  
+class="td11"><!--l. 228--><p class="noindent" >                 </td><td  style="white-space:normal; text-align:left;" id="TBL-23-3-2"  
+class="td11"><span 
+class="ecti-1000">cirkelsektorns area</span></td><td  style="white-space:normal; text-align:left;" id="TBL-23-3-3"  
+class="td11"><span 
+class="cmmi-10">A </span><span 
+class="cmr-10">=</span> <img 
+src="endim-A113x.png" alt="br2-"  class="frac" align="middle">  </td>
+</tr></table></div>                                                                                                                            </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-22-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-22-2-1"  
+class="td11"> <!--l. 233--><p class="noindent" >                                                                </td></tr></table></div>
+   <h3 class="likesectionHead"><a 
+ id="x1-7000"></a>Kapitel A. Analytisk geometri</h3>
+
+   <div class="tabular"> <table width="500px" id="TBL-24" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-24-1g"><col 
+id="TBL-24-1"></colgroup><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-1-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-24-1-1"  
+class="td11"> <!--l. 236--><p class="noindent" ><span 
+class="ecbx-1000">Sats 1 </span>(+ räta linjen, s 91-96). <span 
+class="ecti-1000">Avståndet mellan två punkter i planet </span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmr-10">)</span>
+  <span 
+class="ecti-1000">och </span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmmi-10">,y</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmr-10">) </span><div class="eqnarray">
+  <center class="math-display" >
+  <img 
+src="endim-A114x.png" alt="    &#x2218; --------------------
+d =   (x1 - x2)2 + (y1 - y2)2               (1)
+                  -y2---y1
+               k = x2 - x1               (2)
+                k1k2 = - 1               (3)
+  " class="math-display" ></center>
+  </div>                                                                                                    </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-2-"><td  style="white-space:normal; text-align:left; vertical-align:middle;" id="TBL-24-2-1"  
+class="td11"> <!--l. 245--><p class="noindent" >                                                                </td> </tr></table></div><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /> 
+</div>
+</body></html> 
+
+
+
