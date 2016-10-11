@@ -10,14 +10,22 @@
 
 <body>
   <div class="container">
+    <row>
     <!-- Top -->
     <header>
       <div ng-controller="HeaderController">
-        <div ng-include="'app/shared/header/header.html'"></div>
-        <div ng-include="'app/shared/header/navbar.html'"></div>
+        <div class="col-md-12">
+          <div ng-include="'app/shared/header/header.html'"></div>
+        </div>
+        <div class="col-md-9 col-md-offset-1">
+          <div ng-include="'app/shared/header/navbar.html'"></div>
+        </div>
       </div>
     </header>
-    <div ng-view></div>
+      <div class="col-md-9 col-md-offset-1">
+        <div ng-view></div>
+      </div>
+    </row>
   </div>
 
   <script src="assets/libs/jquery.min.js"></script>

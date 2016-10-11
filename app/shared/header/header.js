@@ -1,20 +1,56 @@
 angular.module('header', []).
   controller('HeaderController', function($scope) {
+
+    function fetch_courses(callback) {
+      var get_course = function(url, callback) {
+        var items = [];
+        $.getJSON(url, function(data) {
+          $.each( data, function( key, val ) {
+            var type = val.name.slice(-3);
+            var url = "https://api.github.com/repos/VictorWinberg/Datateknik/contents/";
+            var href = "Datateknik/" + val.url.slice(url.length);
+            console.log(href);
+            if(val.type == "file" && type != "jpg" && type != "png" && type != "css") {
+              items.push({
+                title: val.name,
+                href: href
+              });
+            }
+          });
+          console.log(1);
+          callback(items);
+        });
+      }
+
+      var courses = [];
+      $.getJSON("https://api.github.com/repos/VictorWinberg/Datateknik/contents/", function(data){
+        var gathered = 0;
+        var fetched = 0;
+        $.each( data, function( key, val ) {
+          if(val.type == "dir" && val.name != "app" && val.name != "assets") {
+            gathered++;
+            get_course(val.url, function(items) {
+              courses.push({
+                title: val.name,
+                items: items
+              });
+              fetched++
+              if(fetched == gathered) {
+                console.log(2);
+                callback(courses);
+              }
+            });
+          }
+        });
+      });
+    }
+    $scope.dropdowns = [{title: "Laddar..."}];
+    fetch_courses(function(courses) {
+      $scope.dropdowns = courses;
+      $scope.$apply()
+      console.log(3);
+      console.log($scope.dropdowns);
+    });
+
     $scope.logopath = 'assets/img/dseklogo.svg';
-    $scope.dropdowns =
-    [
-      {title: 'Aktuellt', items: [
-        {title: 'Nyheter', href: 'nyheter'},
-        {title: 'Kalender', href: 'kalender'},
-        {title: 'Eventanmälan', href: 'eventanmälan'}]},
-      {title: 'Community', items: [
-        {title: 'Anslut', href: 'anslut'}]},
-      {title: 'För funktionärer', items: [
-        {title: 'STAB16', href: 'stab16'}]},
-      {title: 'Sektionen', items: [
-        {title: 'Om sektionen', href: 'sektionen'},
-        '-',
-        {title: 'Swagtest', href: 'swagtest'}]},
-      {title: 'För företag', href: 'foretag'}
-    ];
 });
