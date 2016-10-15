@@ -7,8 +7,8 @@ angular.module('header', []).
         $.getJSON(url, function(data) {
           $.each( data, function( key, val ) {
             var type = val.name.slice(-3);
-            var url = "https://api.github.com/repos/VictorWinberg/Datateknik/contents/";
-            var href = "Datateknik/" + val.url.slice(url.length);
+            var url = "https://api.github.com/repos/victorwinberg/datateknik/contents/";
+            var href = "datateknik/" + val.url.slice(url.length);
             console.log(href);
             if(val.type == "file" && type != "jpg" && type != "png" && type != "css") {
               items.push({
@@ -23,7 +23,7 @@ angular.module('header', []).
       }
 
       var courses = [];
-      $.getJSON("https://api.github.com/repos/VictorWinberg/Datateknik/contents/", function(data){
+      $.getJSON("https://api.github.com/repos/victorwinberg/datateknik/contents/", function(data){
         var gathered = 0;
         var fetched = 0;
         $.each( data, function( key, val ) {

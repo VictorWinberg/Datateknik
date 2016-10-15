@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<head><title>Real-Time Concurrent Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)">
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)">
+<!-- html -->
+<meta name="src" content="main.tex">
+<meta name="date" content="2016-10-15 14:19:00">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+</head><body>
+  <div class="container">
+<div id="header" align="center">
+  <h1 class="titleHead">Real-Time Concurrent Programming</h2>
+   <h4 class="author" ><span
+  class="ecrm-1200">Summary by Victor Winberg</span></h4><br />
+  <div class="date" ></div>
+</div>
+   <div class="maketitle">
+   </div>
+   <h2 class="likesectionHead"><a
+ id="x1-1000"></a>3    Principles</h3>
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Parallelism </span>- the execution of processes are carried out simultaneously,
+     where programs often gets divided into smaller ones.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Process </span>- an instance of a computer program that is being executed.
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Process state </span>- in a multitasking system, process may have various states,
+     not recognized by the operating system kernel. But an useful abstraction.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Process Life Cycle </span>- the context of processes initial, maturing and final
+     stages of evolution and growth.
+<div class="row">
+  <div class="col-md-6">
+    <img class="img-responsive" src="PSD.png" alt="PIC">
+  </div>
+</div>
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Process State Diagram </span>- nodes represent states and arcs represent
+     transitions (e.g. above).
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Ready </span>- the thread has told the scheduler its ready and waits, until
+         the  sceduler  decides  to  execute  the  thread  by  initialize  a  <span
+class="ecti-1000">context</span>
+         <span
+class="ecti-1000">switch </span>and move the thread from <span
+class="ecti-1000">ready </span>to <span
+class="ecti-1000">running</span>.
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Running </span>- the thread is executing its instructions on the CPU, until
+         the scheduler decide to move the thread from <span
+class="ecti-1000">running </span>to <span
+class="ecti-1000">ready</span>.
+
+
+
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Blocked </span>- the thread (itself) has decided to yield the processor (e.g.
+         due to not being able to lock a resource, wait for I/O operations or
+         having to sleep) or preemption (temporarily interrupt) decided by
+         the scheduler.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Context switch </span>- the process of storing and restoring the state of a process or
+     thread so that execution can be resumed later, by saving the current threads
+     call stack and registers, and restoring another.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Multithreading - hardware </span>- the ability of a CPU or a single core in a
+     multi-core processor to execute multiple processes or threads concurrently.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Multithreading - software </span>- allows multiple threads to exist within the
+     context of one process.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Volatile </span>- a value may change between different accesses, even if it does not
+     appear to be modified.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Transient </span>- a property of any element in the system that is temporary.</p></li></ul>
+<!--l. 46--><p class="noindent" >
+   <h2 class="likesectionHead"><a
+ id="x1-2000"></a>4    Deadlock</h3>
+<!--l. 47--><p class="noindent" ><hr class="figure"><div class="figure"
+>
+
+
+
+
+
+
+<!--l. 49--><p class="noindent" ><!--l. 50--><p class="noindent" >
+<div class="row center-block text-center">
+  <div class="col-md-4">
+    <img class="img-responsive" src="deadlock.jpg" alt="PIC"><br>(a) A deadlock
+  </div>
+  <div class="col-md-2">
+    <img class="img-responsive" src="RAG.jpg" alt="PIC"><br>(b) RAG
+  </div>
+</div>
+
+
+<!--l. 57--><p class="noindent" ></div><hr class="endfigure">
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Deadlock </span>- occurs when two competing actions wait for the other to
+     finish, and thus neither ever does (e.g. above (a)).
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Four conditions </span>- deadlock arise if all of the conditions are held.
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Mutual exclusion </span>- resources involved are unshareable (only one
+         process can use the resource at any given time).
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Hold  and  Wait </span>(aka  resource  holding)  -  a  process  is  currently
+         holding  at  least  one  resource  and  requesting  additional  resources
+         which are being held by other processes.
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Nonpreemption </span>- a resource can be released only voluntarily by
+         the process holding it.
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Circular wait </span>- processes in the system form a circular chain where
+         each process in the list is waiting for a resource held by the next
+         process in the chain.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Resource Allocation Graph </span>- tracks which resource is held by which process
+     and which process is waiting for a resource of a particular type (e.g. above
+     (b))
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Deadlock Prevention </span>- preventing one of the four conditions.
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Mutual  exclusion </span>-  no  process  will  have  exclusive  access  to  a
+         resource.
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Hold and Wait </span>- requiring processes to request all the resources
+         they will need before starting up.
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Nonpreemption </span>- difficult or impossible to avoid as a process has
+         to be able to have a resource for a certain amount of time. However,
+         algorithms  that  allow  preemption  include  lock-free  and  wait-free
+         algorithms.
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Circular  wait </span>-  disabling  interrupts  during  critical  sections  and
+         using a hierarchy to determine a partial ordering of resources.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Deadlock Avoidance </span>- establish system does not enter an unsafe
+     state.
+
+
+
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Resource Allocation Graph (RAG)</span>
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Banker&#8217;s algorithm </span>- tests for safety by simulating the allocation
+         of predetermined maximum possible amounts of all resources.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Deadlock Detection and Recovery</span>
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Wait-for graph </span>- a directed graph used for deadlock detection.
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Modified Banker&#8217;s algorithm </span>- see if further allocations can be
+         made on not based on current allocations.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Livelock </span>- is similar to a deadlock, except that the states of the processes
+     involved in the livelock constantly change with regard to one another, none
+     progressing.</p></li></ul>
+   <h2 class="likesectionHead"><a
+ id="x1-3000"></a>5    Interprocess communication: Shared Variables</h3><!--l. 89--><p class="noindent" ><hr class="figure"><div class="figure"
+>
+
+
+
+
+
+
+<!--l. 90--><p class="noindent" >
+
+<div class="row center-block text-center">
+  <div class="col-md-3">
+    <img class="img-responsive" src="race_condition.png" alt="PIC"><br>(a) A race condition
+  </div>
+  <div class="col-md-6">
+    <img class="img-responsive" src="peterson.png" alt="PIC"><br>(b) Peterson&#8217;s algorithm
+  </div>
+</div>
+
+
+<!--l. 99--><p class="noindent" ></div><hr class="endfigure">
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Race Conditions </span>- when the output is dependent on the sequence or
+     timing of other uncontrollable events (e.g above (a)).
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Critical region </span>- a section that cannot be executed by more than one
+     process, which otherwise lead to unexpected or erroneous behavior.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Starvation </span>- a process is perpetually denied necessary resources to process
+     its work, may be caused by errors in a scheduling or mutual exclusion
+     algorithm, resource leaks or denial-of-service attack.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Bounded waiting </span>- (or bounded bypass) means that there exist a limit
+     of times a process is bypassed by other processes before its request to enter
+     a critical region is granted, preventing starvation.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Hardware-Assisted Lock Variables </span>- the processor provides a test-and-set
+     instruction.
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Test-and-set </span>- instruction that writes to a memory location and
+         returns its old value as a single atomic (non-interruptible) operation.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Software-Based Mutual Exclusion </span>- a synchronization mechanism that
+     limits access to a resource, e.g. Dekker&#8217;s or Peterson&#8217;s algorithm.
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Dekker&#8217;s algorithm </span>- first known correct solution to the mutual
+         exclusion problem.
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Peterson&#8217;s  algorithm </span>-  allows  two  or  more  processes  to  share
+         a  single-use  resource  without  conflict,  using  shared  memory  for
+         communication (e.g. above (b)).</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Active/Busy Wait </span>- a process repeatedly checks to see if a condition is true,
+     wasting process cycles.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Passive Wait </span>- a process that cannot proceed (e.g. waiting for an I/O
+     operation) are placed in the <span
+class="ecti-1000">Blocked </span>state.
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Blocked state </span>- a state where processes does not proceed execution,
+         without wasting processor cycles, saving processor power.</p></li></ul>
+
+
+
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Semaphore </span>- a variable or abstract data type that controls access to common
+     resources by multiple processes.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Monitor </span>- a synchronization construct that allows threads to have
+     both mutual exclusion and the ability to wait (block) for a certain
+     condition.</p></li></ul>
+   <h2 class="likesectionHead"><a
+ id="x1-4000"></a>6    Interprocess communication: Message Passing</h3>
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Send and Receive </span>- the basic two primitives message-passing relies on.
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Message passing </span>- sends a message to a process and relies on the process with
+     its infrastructure to select and invoke correct segment code to run, which fall
+     into three main areas:
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Name </span>- (or the identity) of the senders and recipients.
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Synchronization </span>- the sync constraints the primitives enforce.
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Buffer </span>- the buffer space provided.</p></li></ul>
+     </p></li></ul>
+<!--l. 133--><p class="noindent" >
+   <h2 class="likesectionHead"><a
+ id="x1-5000"></a>9    Network Communication</h3>
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Ethernet Protocol </span>- a communication protocol restricted to the physical
+     and data link layer.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">TCP/IP  </span>-  a  connection  oriented  stream  over  an  IP  network  with
+     guarantees that all sent packets will reach the destination correctly.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">UDP  </span>-  a  connection-less  protocol,  instead  datagram  oriented,  with
+     integrity  guarantees  on  the  single  datagram  often  used  in  real-time
+     applications.</p></li></ul>
+
+
+
+<!--l. 139--><p class="noindent" >
+   <h2 class="likesectionHead"><a
+ id="x1-6000"></a>11    Real-Time Cyclic-based Scheduling</h3>
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Scheduling model </span>- produce the expected output in all cases and correct with
+     respect to <span
+class="ecti-1000">timings</span>, which must include two main elements:
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Scheduling algorithm </span>- a set of rules for ordering the use of system
+         resources, in particular the processors.
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Worst-case  behavior  </span>-  how  much  time  might  be  needed  to
+         guarantee that the algorithm will always finish on time.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Cyclic executive </span>- (aka timeline scheduling or cyclic scheduling) a
+     fixed set of periodic tasks that is repeatedly executed in their correct
+     order.</p></li></ul>
+<!--l. 149--><p class="noindent" >
+   <h2 class="likesectionHead"><a
+ id="x1-7000"></a>12    Real-Time Task-based Scheduling</h3>
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Rate-monotonic  scheduling  (RMS) </span>-  static  priorities  are  assigned
+     according to the cycle duration of the job, the shorter cycle duration the
+     higher priority, called fixed-priority assignment.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Earliest  deadline  first  (EDF)  </span>-  dynamic  algorithm  that  places
+     processes in priority queue. Whenever a scheduling event occurs (task
+     finishes, new task released, etc.) the queue will be searched for the process
+     closest to its deadline.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">RMS &#x003E; EDF </span>- the advantages RMS has over EDF:
+         <ul class="itemize2">
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Fixed priority </span>- is easier to implement when priority is static.
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Run-time </span>- is less complexity and overhead.
+         </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Overload </span>- is easier to predict assignment (lower-priority will miss
+         their deadline).
+       </p></li>
+         <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">EDF has a domino-effect </span>- due to its less predictable a large
+         amount of tasks can unnecessarily miss their deadline.</p></li></ul>
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">EDF &#x003E; RMS </span>- the advantages EDF has over RMS, is that EDF is always able
+     to exploit the full processor capacity.</p></li></ul>
+
+
+
+<!--l. 162--><p class="noindent" >
+   <h2 class="likesectionHead"><a
+ id="x1-8000"></a>14    Response Time based Schedulability Analysis</h3>
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Response Time Analysis (RTA) </span>- an exact (necessary and sufficient)
+     prediction of the worst-case response time of each fixed-priority task on
+     single-processor system.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Worst-case execution time </span>- obtained by measurement and analysis.
+     </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Aperiodic and sporadic tasks </span>- an infinite sequence of identical jobs,
+     that finishes at an irregular rate (e.g. user or external event interaction).</p></li></ul>
+<!--l. 169--><p class="noindent" >
+   <h2 class="likesectionHead"><a
+ id="x1-9000"></a>15    Task Interactions and Blocking</h3>
+     <ul class="itemize1">
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Priority inversion </span>- a problematic scenario when a high priority task is
+     indirectly preempted by a lower priority task effectively "inverting" the
+     relative priorities of the two tasks.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Priority  inheritance  protocol  </span>-  a  method  for  eliminating  priority
+     inversion, by increasing the priority of a process (A) to the maximum
+     priority of any other process waiting for any resource on which A has a
+     resource lock.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Direct blocking </span>- a high-priority task is blocked when trying to acquire
+     a resource held by a lower-priority task.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Push-through  blocking </span>-  a  consequence  of  the  priority  inheritance
+     protocol  when  an  intermediate-priority  task  cannot  run  because  a
+     lower-priority task has temporarily inherited a higher priority.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Priority  ceiling  protocol  </span>-  a  synchronization  protocol  to  avoid
+     unbounded priority inversion and mutual deadlock due to wrong nesting of
+     critical sections. In this protocol each resource is assigned a priority ceiling,
+     which is a priority equal to the highest priority of any task which may
+     lock the resource. The protocol works by temporarily raising the priorities
+     of tasks in certain situations, thus it requires a scheduler that supports
+     dynamic priority scheduling.
+   </p></li>
+     <li class="itemize"><p><span
+class="ecbx-1000" style="font-weight:bold;">Worst-case response time </span><span
+class="cmmi-10">R</span><sub><span
+class="cmmi-7">i</span></sub> <span
+class="ecbx-1000" style="font-weight:bold;">of task </span><span
+class="cmmi-10">&#x03C4;</span><sub><span
+class="cmmi-7">i</span></sub><br
+class="newline" />
+
+
+
+     <table
+class="equation-star"><tr><td>
+     <center class="math-display" >
+     <img
+src="main0x.png" alt=" (k+1)            &#x2211;     Rki
+Ri    =  Ci +Bi +   j&#x2208;hp&#x2308; Tj &#x2309;Cj,
+
+     Ci  worst- case execution time,
+     Bi  worst- case blocking time,
+     Ti  task&#8217;s period.
+     " class="math-display" ></center></td></tr></table>
+     <!--l. 184--><p class="nopar" >
+     </p></li></ul>
+<!--l. 186--><p class="noindent" >
+   <h2 class="likesectionHead"><a
+ id="x1-10000"></a>Bibliography</h3>
+<!--l. 187--><p class="noindent" >
+     <ol  class="enumerate1" >
+     <li
+  class="enumerate<p>" id="x1-10002x1">Wikipedia: <a
+href="https://en.wikipedia.org/wiki/Concurrent_computing" class="url" ><span
+class="ectt-1000">https://en.wikipedia.org/wiki/Concurrent_computing</span></a>
+     </p></li>
+     <li style="padding-bottom:20px;"
+  class="enumerate<p>" id="x1-10004x2">I.  C.  Bertolotti  and  G.  Manduchi:  <a
+href="http://www.crcnetbase.com.ludwig.lub.lu.se/isbn/978-1-4398-4154-9" >Real-Time  Embedded  Systems:
+     Open-Source Operating Systems Perspective</a></p></li></ol>
+
+</body></html>
